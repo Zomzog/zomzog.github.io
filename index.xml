@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zomzog&#39;s blog</title>
+    <link>https://zomzog.fr/</link>
+    <description>Recent content on Zomzog&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
+    <lastBuildDate>Thu, 12 Dec 2019 21:24:11 +0100</lastBuildDate>
+    
+	<atom:link href="https://zomzog.fr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitflow &#43; Maven = JgitVer</title>
+      <link>https://zomzog.fr/2019/12/gitflow-maven-jgitver/</link>
+      <pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2019/12/gitflow-maven-jgitver/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Gitflow is a branching model for Git where the develop branch contains staging modification and master branch contains released commits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this article, I will present you how we simplified maven version management to avoid merge conflict and ease our release process.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Contract-First</title>
+      <link>https://zomzog.fr/2019/12/contract-first/</link>
+      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2019/12/contract-first/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;An updated version of api-first presentation my teamates to OpenAPI-Generator.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Unit toolkit</title>
+      <link>https://zomzog.fr/2019/10/unit-toolkit/</link>
+      <pubDate>Wed, 09 Oct 2019 23:05:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2019/10/unit-toolkit/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;This presentation has been created to introduce my teamates to Junit 5 and other frameworks.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>API-First</title>
+      <link>https://zomzog.fr/2019/03/api-first/</link>
+      <pubDate>Tue, 05 Mar 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2019/03/api-first/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;This presentation has been created to introduce my teamates to OpenAPI-Generator.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Aspect Oriented Programming</title>
+      <link>https://zomzog.fr/2018/09/aspect-oriented-programming/</link>
+      <pubDate>Sun, 23 Sep 2018 19:18:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2018/09/aspect-oriented-programming/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;This presentation has been created to introduce my teamates to aop.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Prestashop 1.7 module</title>
+      <link>https://zomzog.fr/2017/12/prestashop-1.7-module/</link>
+      <pubDate>Tue, 05 Dec 2017 08:35:41 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2017/12/prestashop-1.7-module/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I&amp;#8217;ve installed a Prestashop store because&amp;#8230;&amp;#8203; It&amp;#8217;s free and open source.
+I need some modules like EU cookie banner and I don&amp;#8217;t want to pay 30+€ just for that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I looked at the community solution but I didn&amp;#8217;t find a solution that transcended me&amp;#8230;&amp;#8203;
+And in fact, it&amp;#8217;s a good &#34;hello world&#34; example for me to learn how to create modules for Prestashop.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Springboot embeded flowable</title>
+      <link>https://zomzog.fr/2017/11/springboot-embeded-flowable/</link>
+      <pubDate>Wed, 01 Nov 2017 21:49:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2017/11/springboot-embeded-flowable/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this tutorial, we&amp;#8217;ll see how to initiate a springboot project with flowable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We will build an API to make a pony says &#34;hello &amp;lt;name&amp;gt;&#34; or &#34;Eeyup&#34; if the pony is Big McIntosh&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

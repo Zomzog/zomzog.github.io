@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Zomzog&#39;s blog</title>
+    <link>https://zomzog.fr/tags/</link>
+    <description>Recent content in Tags on Zomzog&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
+    <lastBuildDate>Thu, 12 Dec 2019 21:24:11 +0100</lastBuildDate>
+    
+	<atom:link href="https://zomzog.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitflow</title>
+      <link>https://zomzog.fr/tags/gitflow/</link>
+      <pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/gitflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JgitVer</title>
+      <link>https://zomzog.fr/tags/jgitver/</link>
+      <pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/jgitver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maven</title>
+      <link>https://zomzog.fr/tags/maven/</link>
+      <pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://zomzog.fr/tags/java/</link>
+      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenAPI</title>
+      <link>https://zomzog.fr/tags/openapi/</link>
+      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/openapi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenAPI-Generator</title>
+      <link>https://zomzog.fr/tags/openapi-generator/</link>
+      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/openapi-generator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>https://zomzog.fr/tags/springboot/</link>
+      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JUnit</title>
+      <link>https://zomzog.fr/tags/junit/</link>
+      <pubDate>Wed, 09 Oct 2019 23:05:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/junit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://zomzog.fr/tags/test/</link>
+      <pubDate>Wed, 09 Oct 2019 23:05:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AoP</title>
+      <link>https://zomzog.fr/tags/aop/</link>
+      <pubDate>Sun, 23 Sep 2018 19:18:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/aop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AspectJ</title>
+      <link>https://zomzog.fr/tags/aspectj/</link>
+      <pubDate>Sun, 23 Sep 2018 19:18:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/aspectj/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://zomzog.fr/tags/php/</link>
+      <pubDate>Tue, 05 Dec 2017 08:35:41 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prestashop</title>
+      <link>https://zomzog.fr/tags/prestashop/</link>
+      <pubDate>Tue, 05 Dec 2017 08:35:41 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/prestashop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BPM</title>
+      <link>https://zomzog.fr/tags/bpm/</link>
+      <pubDate>Wed, 01 Nov 2017 21:49:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/bpm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flowabe</title>
+      <link>https://zomzog.fr/tags/flowabe/</link>
+      <pubDate>Wed, 01 Nov 2017 21:49:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/flowabe/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flowabe on Zomzog&#39;s blog</title>
+    <link>https://zomzog.fr/tags/flowabe/</link>
+    <description>Recent content in Flowabe on Zomzog&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
+    <lastBuildDate>Wed, 01 Nov 2017 21:49:21 +0100</lastBuildDate>
+    
+	<atom:link href="https://zomzog.fr/tags/flowabe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Springboot embeded flowable</title>
+      <link>https://zomzog.fr/2017/11/springboot-embeded-flowable/</link>
+      <pubDate>Wed, 01 Nov 2017 21:49:21 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2017/11/springboot-embeded-flowable/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this tutorial, we&amp;#8217;ll see how to initiate a springboot project with flowable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We will build an API to make a pony says &#34;hello &amp;lt;name&amp;gt;&#34; or &#34;Eeyup&#34; if the pony is Big McIntosh&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
