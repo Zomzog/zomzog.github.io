@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Fri, 07 Feb 2020 21:24:11 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 21:24:11 +0100</lastBuildDate>
     
 	<atom:link href="https://zomzog.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Gitflow</title>
       <link>https://zomzog.fr/tags/gitflow/</link>
-      <pubDate>Fri, 07 Feb 2020 21:24:11 +0100</pubDate>
+      <pubDate>Wed, 05 Feb 2020 21:24:11 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/gitflow/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>JgitVer</title>
       <link>https://zomzog.fr/tags/jgitver/</link>
-      <pubDate>Fri, 07 Feb 2020 21:24:11 +0100</pubDate>
+      <pubDate>Wed, 05 Feb 2020 21:24:11 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/jgitver/</guid>
       <description></description>
@@ -33,7 +33,7 @@
     <item>
       <title>Maven</title>
       <link>https://zomzog.fr/tags/maven/</link>
-      <pubDate>Fri, 07 Feb 2020 21:24:11 +0100</pubDate>
+      <pubDate>Wed, 05 Feb 2020 21:24:11 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/maven/</guid>
       <description></description>
