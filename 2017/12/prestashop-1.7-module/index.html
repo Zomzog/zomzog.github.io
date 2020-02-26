@@ -29,7 +29,7 @@ I need some modules like EU cookie banner and I don&#8217;t want to pay 30&#43;�
 I looked at the community solution but I didn&#8217;t find a solution that transcended me&#8230;&#8203;
 And in fact, it&#8217;s a good &#34;hello world&#34; example for me to learn how to create modules for Prestashop.
 "/>
-<meta name="generator" content="Hugo 0.64.1" />
+<meta name="generator" content="Hugo 0.65.3" />
 
 
     
@@ -263,9 +263,9 @@ At installation, we will also declare a default content message for the ribbon.<
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">public function install()
 {
-    return parent::install() <span style="color:#960050;background-color:#1e0010">&amp;</span><span style="color:#960050;background-color:#1e0010">&amp;</span>
-        $this-&gt;registerHook(&#39;displayFooter&#39;) <span style="color:#960050;background-color:#1e0010">&amp;</span><span style="color:#960050;background-color:#1e0010">&amp;</span>
-        $this-&gt;registerHook(&#39;header&#39;) <span style="color:#960050;background-color:#1e0010">&amp;</span><span style="color:#960050;background-color:#1e0010">&amp;</span>
+    return parent::install() <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span>
+        $this-&gt;registerHook(&#39;displayFooter&#39;) <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span>
+        $this-&gt;registerHook(&#39;header&#39;) <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span>
         Configuration::updateValue(&#39;Z_COOKIES_ALERT_MESSAGE&#39;, &#39;En poursuivant votre navigation, vous acceptez l\&#39;utilisation des cookies pour disposer de services et d\&#39;offres adaptés à vos centres d\&#39;intérêt.&#39;);
 }</code></pre></td></tr></table>
 </div>

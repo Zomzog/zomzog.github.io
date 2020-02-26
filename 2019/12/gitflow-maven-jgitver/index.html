@@ -25,7 +25,7 @@ Gitflow is a branching model for Git where the develop branch contains staging m
 
 In this article, I will present you how we simplified maven version management to avoid merge conflict and ease our release process.
 "/>
-<meta name="generator" content="Hugo 0.64.1" />
+<meta name="generator" content="Hugo 0.65.3" />
 
 
     
@@ -240,10 +240,10 @@ With this approch we do not care of version for every branches except master.</p
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;extensions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/EXTENSIONS/1.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
             <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/EXTENSIONS/1.0.0 http://maven.apache.org/xsd/core-extensions-1.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;extension</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>fr.brouillard.oss<span style="color:#f92672">&lt;/groupId&gt;</span>
-        <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>jgitver-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
-        <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.5.1<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;extension&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>fr.brouillard.oss<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>jgitver-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>1.5.1<span style="color:#f92672">&lt;/version&gt;</span>
     <span style="color:#f92672">&lt;/extension&gt;</span>
 <span style="color:#f92672">&lt;/extensions&gt;</span>
 	</code></pre></td></tr></table>
@@ -283,10 +283,10 @@ With this approch we do not care of version for every branches except master.</p
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://jgitver.github.io/maven/configuration/1.1.0&#34;</span>
                <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
                <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://jgitver.github.io/maven/configuration/1.1.0 https://jgitver.github.io/maven/configuration/jgitver-configuration-v1_1_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;strategy</span><span style="color:#f92672">&gt;</span>CONFIGURABLE<span style="color:#f92672">&lt;/strategy&gt;</span>
-    <span style="color:#f92672">&lt;useDirty</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/useDirty&gt;</span>
-    <span style="color:#f92672">&lt;useGitCommitId</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/useGitCommitId&gt;</span>
-    <span style="color:#f92672">&lt;useSnapshot</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/useSnapshot&gt;</span>
+    <span style="color:#f92672">&lt;strategy&gt;</span>CONFIGURABLE<span style="color:#f92672">&lt;/strategy&gt;</span>
+    <span style="color:#f92672">&lt;useDirty&gt;</span>true<span style="color:#f92672">&lt;/useDirty&gt;</span>
+    <span style="color:#f92672">&lt;useGitCommitId&gt;</span>true<span style="color:#f92672">&lt;/useGitCommitId&gt;</span>
+    <span style="color:#f92672">&lt;useSnapshot&gt;</span>true<span style="color:#f92672">&lt;/useSnapshot&gt;</span>
 <span style="color:#f92672">&lt;/configuration&gt;</span>
 	</code></pre></td></tr></table>
 </div>

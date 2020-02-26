@@ -25,7 +25,7 @@ In this tutorial, we&#8217;ll see how to initiate a springboot project with flow
 
 We will build an API to make a pony says &#34;hello &lt;name&gt;&#34; or &#34;Eeyup&#34; if the pony is Big McIntosh
 "/>
-<meta name="generator" content="Hugo 0.64.1" />
+<meta name="generator" content="Hugo 0.65.3" />
 
 
     
@@ -35,7 +35,7 @@ We will build an API to make a pony says &#34;hello &lt;name&gt;&#34; or &#34;Ee
   "@type": "BlogPosting",
   "headline": "Springboot embeded flowable",
   "url": "https:\/\/zomzog.fr\/2017\/11\/springboot-embeded-flowable\/",
-  "wordCount": "1003",
+  "wordCount": "1008",
   "datePublished": "2017-11-01T21:49:21\x2b01:00",
   "dateModified": "2017-11-01T21:49:21\x2b01:00",
   "author": {
@@ -208,56 +208,56 @@ We will build an API to make a pony says &#34;hello &lt;name&gt;&#34; or &#34;Ee
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">		<span style="color:#f92672">&lt;parent</span><span style="color:#f92672">&gt;</span>
-			<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-			<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
-			<span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.5.8.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
-			<span style="color:#f92672">&lt;relativePath</span><span style="color:#f92672">/&gt;</span> <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> lookup parent from repository </span><span style="color:#75715e">--&gt;</span>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">		<span style="color:#f92672">&lt;parent&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;version&gt;</span>1.5.8.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+			<span style="color:#f92672">&lt;relativePath/&gt;</span> <span style="color:#75715e">&lt;!-- lookup parent from repository --&gt;</span>
 		<span style="color:#f92672">&lt;/parent&gt;</span>
 
-		<span style="color:#f92672">&lt;properties</span><span style="color:#f92672">&gt;</span>
-			<span style="color:#f92672">&lt;java.version</span><span style="color:#f92672">&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
-			<span style="color:#f92672">&lt;flowable.version</span><span style="color:#f92672">&gt;</span>6.2.0<span style="color:#f92672">&lt;/flowable.version&gt;</span>
+		<span style="color:#f92672">&lt;properties&gt;</span>
+			<span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+			<span style="color:#f92672">&lt;flowable.version&gt;</span>6.2.0<span style="color:#f92672">&lt;/flowable.version&gt;</span>
 		<span style="color:#f92672">&lt;/properties&gt;</span>
 		
-		<span style="color:#f92672">&lt;dependencies</span><span style="color:#f92672">&gt;</span>
-			<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> Springboot </span><span style="color:#75715e">--&gt;</span>
-			<span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-				<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+		<span style="color:#f92672">&lt;dependencies&gt;</span>
+			<span style="color:#75715e">&lt;!-- Springboot --&gt;</span>
+			<span style="color:#f92672">&lt;dependency&gt;</span>
+				<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+				<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
 			<span style="color:#f92672">&lt;/dependency&gt;</span>
-			<span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-				<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-boot-starter-data-jpa<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;dependency&gt;</span>
+				<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+				<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span style="color:#f92672">&lt;/artifactId&gt;</span>
 			<span style="color:#f92672">&lt;/dependency&gt;</span>
 
-			<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> Flowabe </span><span style="color:#75715e">--&gt;</span>
-			<span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.flowable<span style="color:#f92672">&lt;/groupId&gt;</span>
-				<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>flowable-spring-boot-starter-basic<span style="color:#f92672">&lt;/artifactId&gt;</span>
-				<span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${flowable.version}<span style="color:#f92672">&lt;/version&gt;</span>
+			<span style="color:#75715e">&lt;!-- Flowabe --&gt;</span>
+			<span style="color:#f92672">&lt;dependency&gt;</span>
+				<span style="color:#f92672">&lt;groupId&gt;</span>org.flowable<span style="color:#f92672">&lt;/groupId&gt;</span>
+				<span style="color:#f92672">&lt;artifactId&gt;</span>flowable-spring-boot-starter-basic<span style="color:#f92672">&lt;/artifactId&gt;</span>
+				<span style="color:#f92672">&lt;version&gt;</span>${flowable.version}<span style="color:#f92672">&lt;/version&gt;</span>
 			<span style="color:#f92672">&lt;/dependency&gt;</span>
 			
-			<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> Database </span><span style="color:#75715e">--&gt;</span>
-			<span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
-				<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
-				<span style="color:#f92672">&lt;scope</span><span style="color:#f92672">&gt;</span>runtime<span style="color:#f92672">&lt;/scope&gt;</span>
+			<span style="color:#75715e">&lt;!-- Database --&gt;</span>
+			<span style="color:#f92672">&lt;dependency&gt;</span>
+				<span style="color:#f92672">&lt;groupId&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
+				<span style="color:#f92672">&lt;artifactId&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
+				<span style="color:#f92672">&lt;scope&gt;</span>runtime<span style="color:#f92672">&lt;/scope&gt;</span>
 			<span style="color:#f92672">&lt;/dependency&gt;</span>
 
-			<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> Test </span><span style="color:#75715e">--&gt;</span>
-			<span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-				<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
-				<span style="color:#f92672">&lt;scope</span><span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+			<span style="color:#75715e">&lt;!-- Test --&gt;</span>
+			<span style="color:#f92672">&lt;dependency&gt;</span>
+				<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+				<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+				<span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
 			<span style="color:#f92672">&lt;/dependency&gt;</span>
 		<span style="color:#f92672">&lt;/dependencies&gt;</span>
 		
-		<span style="color:#f92672">&lt;build</span><span style="color:#f92672">&gt;</span>
-			<span style="color:#f92672">&lt;plugins</span><span style="color:#f92672">&gt;</span>
-				<span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
-					<span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-					<span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+		<span style="color:#f92672">&lt;build&gt;</span>
+			<span style="color:#f92672">&lt;plugins&gt;</span>
+				<span style="color:#f92672">&lt;plugin&gt;</span>
+					<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+					<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
 				<span style="color:#f92672">&lt;/plugin&gt;</span>
 			<span style="color:#f92672">&lt;/plugins&gt;</span>
 		<span style="color:#f92672">&lt;/build&gt;</span>
@@ -324,39 +324,39 @@ We will build an API to make a pony says &#34;hello &lt;name&gt;&#34; or &#34;Ee
 <span style="color:#a6e22e">@SpringBootTest</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PonyControllerTest</span> <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Before</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        MockitoAnnotations<span style="color:#f92672">.</span><span style="color:#a6e22e">initMocks</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">final</span> PonyController ponyController <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PonyController<span style="color:#f92672">(</span>runtimeService<span style="color:#f92672">,</span> historyService<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        MockitoAnnotations<span style="color:#f92672">.</span><span style="color:#a6e22e">initMocks</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">final</span> PonyController ponyController <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PonyController<span style="color:#f92672">(</span>runtimeService<span style="color:#f92672">,</span> historyService<span style="color:#f92672">);</span>
         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span> <span style="color:#f92672">=</span> MockMvcBuilders<span style="color:#f92672">.</span><span style="color:#a6e22e">standaloneSetup</span><span style="color:#f92672">(</span>ponyController<span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
 
     <span style="color:#a6e22e">@Test</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayHello</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayHello</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
         <span style="color:#75715e">// Init
-</span><span style="color:#75715e"></span>        Pony pony <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Pony<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Daring Do&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        pony <span style="color:#f92672">=</span> ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>        Pony pony <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Pony<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Daring Do&#34;</span><span style="color:#f92672">);</span>
+        pony <span style="color:#f92672">=</span> ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">);</span>
         <span style="color:#75715e">// Do
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/ponies/{ponyId}/sayHello&#34;</span><span style="color:#f92672">,</span> pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/ponies/{ponyId}/sayHello&#34;</span><span style="color:#f92672">,</span> pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">()))</span>
                 <span style="color:#75715e">// Validate
-</span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.message&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello Daring Do&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.message&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello Daring Do&#34;</span><span style="color:#f92672">));</span>
         <span style="color:#75715e">// Teardown
-</span><span style="color:#75715e"></span>        ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>        ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">}</span>
 
     <span style="color:#a6e22e">@Test</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayEeyup</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayEeyup</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
         <span style="color:#75715e">// Init
-</span><span style="color:#75715e"></span>        Pony pony <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Pony<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Big McIntosh&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        pony <span style="color:#f92672">=</span> ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>        Pony pony <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Pony<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Big McIntosh&#34;</span><span style="color:#f92672">);</span>
+        pony <span style="color:#f92672">=</span> ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">);</span>
         <span style="color:#75715e">// Do
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/ponies/{ponyId}/sayHello&#34;</span><span style="color:#f92672">,</span> pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/ponies/{ponyId}/sayHello&#34;</span><span style="color:#f92672">,</span> pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">()))</span>
                 <span style="color:#75715e">// Validate
-</span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.message&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eeyup&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.message&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eeyup&#34;</span><span style="color:#f92672">));</span>
         <span style="color:#75715e">// Teardown
-</span><span style="color:#75715e"></span>        ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>        ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></td></tr></table>
 </div>
@@ -402,7 +402,7 @@ We will use two models, an entity Pony with an id and a name and an object messa
 	<span style="color:#a6e22e">@NotNull</span>
 	<span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
 
-	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Pony</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Pony</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">){</span>
         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></td></tr></table>
@@ -492,15 +492,15 @@ We will use two models, an entity Pony with an id and a name and an object messa
     <span style="color:#f92672">}</span>
 
     <span style="color:#66d9ef">public</span> Pony <span style="color:#a6e22e">getOne</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> id<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> FunctionalException <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findOne</span><span style="color:#f92672">(</span>id<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> ponyRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findOne</span><span style="color:#f92672">(</span>id<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
 
-    <span style="color:#66d9ef">public</span> Message <span style="color:#a6e22e">sayEeyup</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Message<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eeyup&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> Message <span style="color:#a6e22e">sayEeyup</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Message<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eeyup&#34;</span><span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
 
-    <span style="color:#66d9ef">public</span> Message <span style="color:#a6e22e">sayHello</span><span style="color:#f92672">(</span>Pony pony<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Message<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> Message <span style="color:#a6e22e">sayHello</span><span style="color:#f92672">(</span>Pony pony<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Message<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> pony<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></td></tr></table>
 </div>
@@ -620,20 +620,20 @@ The execution of the workflow will be stopped.</p>
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#a6e22e">xmlns:xsd=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#a6e22e">xmlns:activiti=</span><span style="color:#e6db74">&#34;http://activiti.org/bpmn&#34;</span> <span style="color:#a6e22e">xmlns:bpmndi=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/DI&#34;</span> <span style="color:#a6e22e">xmlns:omgdc=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/DD/20100524/DC&#34;</span> <span style="color:#a6e22e">xmlns:omgdi=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/DD/20100524/DI&#34;</span> <span style="color:#a6e22e">xmlns:tns=</span><span style="color:#e6db74">&#34;http://www.activiti.org/test&#34;</span> <span style="color:#a6e22e">typeLanguage=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#a6e22e">expressionLanguage=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/XPath&#34;</span> <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;http://www.zomzog.fr/blog&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;m1511380610321&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">&gt;</span>
   <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sayHello&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Say hello process&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">isClosed=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#a6e22e">processType=</span><span style="color:#e6db74">&#34;None&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;startevent1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Start&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/startEvent&gt;</span>
-    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;endevent1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;End&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/endEvent&gt;</span>
-    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getPonyDetails&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Get pony details&#34;</span> <span style="color:#a6e22e">activiti:expression=</span><span style="color:#e6db74">&#34;${ponyService.getOne(ponyId)}&#34;</span> <span style="color:#a6e22e">activiti:resultVariableName=</span><span style="color:#e6db74">&#34;pony&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
-    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sayEeyup&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Say Eeyup&#34;</span> <span style="color:#a6e22e">activiti:expression=</span><span style="color:#e6db74">&#34;${ponyService.sayEeyup()}&#34;</span> <span style="color:#a6e22e">activiti:resultVariableName=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
-    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sayHello&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Say Hello&#34;</span> <span style="color:#a6e22e">activiti:expression=</span><span style="color:#e6db74">&#34;${ponyService.sayHello(pony)}&#34;</span> <span style="color:#a6e22e">activiti:resultVariableName=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
-    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;startevent1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;getPonyDetails&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-    <span style="color:#f92672">&lt;exclusiveGateway</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Exclusive Gateway&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;flow4&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/exclusiveGateway&gt;</span>
-    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;getPonyDetails&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;startevent1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Start&#34;</span><span style="color:#f92672">&gt;&lt;/startEvent&gt;</span>
+    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;endevent1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;End&#34;</span><span style="color:#f92672">&gt;&lt;/endEvent&gt;</span>
+    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getPonyDetails&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Get pony details&#34;</span> <span style="color:#a6e22e">activiti:expression=</span><span style="color:#e6db74">&#34;${ponyService.getOne(ponyId)}&#34;</span> <span style="color:#a6e22e">activiti:resultVariableName=</span><span style="color:#e6db74">&#34;pony&#34;</span><span style="color:#f92672">&gt;&lt;/serviceTask&gt;</span>
+    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sayEeyup&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Say Eeyup&#34;</span> <span style="color:#a6e22e">activiti:expression=</span><span style="color:#e6db74">&#34;${ponyService.sayEeyup()}&#34;</span> <span style="color:#a6e22e">activiti:resultVariableName=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;&lt;/serviceTask&gt;</span>
+    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sayHello&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Say Hello&#34;</span> <span style="color:#a6e22e">activiti:expression=</span><span style="color:#e6db74">&#34;${ponyService.sayHello(pony)}&#34;</span> <span style="color:#a6e22e">activiti:resultVariableName=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;&lt;/serviceTask&gt;</span>
+    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;startevent1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;getPonyDetails&#34;</span><span style="color:#f92672">&gt;&lt;/sequenceFlow&gt;</span>
+    <span style="color:#f92672">&lt;exclusiveGateway</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Exclusive Gateway&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;flow4&#34;</span><span style="color:#f92672">&gt;&lt;/exclusiveGateway&gt;</span>
+    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;getPonyDetails&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span><span style="color:#f92672">&gt;&lt;/sequenceFlow&gt;</span>
     <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow3&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Big McIntosh&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;sayEeyup&#34;</span><span style="color:#f92672">&gt;</span>
       <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">&lt;![CDATA[${pony.name == &#39;Big McIntosh&#39;}]]&gt;</span><span style="color:#f92672">&lt;/conditionExpression&gt;</span>
     <span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Default&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;sayHello&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow5&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;sayEeyup&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;endevent1&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow6&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;sayHello&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;endevent1&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Default&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exclusivegateway1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;sayHello&#34;</span><span style="color:#f92672">&gt;&lt;/sequenceFlow&gt;</span>
+    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow5&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;sayEeyup&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;endevent1&#34;</span><span style="color:#f92672">&gt;&lt;/sequenceFlow&gt;</span>
+    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow6&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;sayHello&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;endevent1&#34;</span><span style="color:#f92672">&gt;&lt;/sequenceFlow&gt;</span>
   <span style="color:#f92672">&lt;/process&gt;</span>
 <span style="color:#f92672">&lt;/definitions&gt;</span></code></pre></td></tr></table>
 </div>
@@ -687,14 +687,14 @@ And at the end, we will use the historyService to access to the ended process va
 
     <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/{ponyId}/sayHello&#34;</span><span style="color:#f92672">)</span>
     <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Message<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">sayHello</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ponyId&#34;</span><span style="color:#f92672">)</span> Long ponyId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        variables<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ponyId&#34;</span><span style="color:#f92672">,</span> ponyId<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">final</span> ProcessInstance process <span style="color:#f92672">=</span> runtimeService<span style="color:#f92672">.</span><span style="color:#a6e22e">startProcessInstanceByKey</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sayHello&#34;</span><span style="color:#f92672">,</span> variables<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">final</span> HistoricVariableInstance hvi <span style="color:#f92672">=</span> historyService<span style="color:#f92672">.</span><span style="color:#a6e22e">createHistoricVariableInstanceQuery</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">processInstanceId</span><span style="color:#f92672">(</span>process<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
-                <span style="color:#f92672">.</span><span style="color:#a6e22e">variableName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">singleResult</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        Message message <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Message<span style="color:#f92672">)</span> hvi<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">return</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        variables<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ponyId&#34;</span><span style="color:#f92672">,</span> ponyId<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">final</span> ProcessInstance process <span style="color:#f92672">=</span> runtimeService<span style="color:#f92672">.</span><span style="color:#a6e22e">startProcessInstanceByKey</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sayHello&#34;</span><span style="color:#f92672">,</span> variables<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">final</span> HistoricVariableInstance hvi <span style="color:#f92672">=</span> historyService<span style="color:#f92672">.</span><span style="color:#a6e22e">createHistoricVariableInstanceQuery</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">processInstanceId</span><span style="color:#f92672">(</span>process<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">variableName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">singleResult</span><span style="color:#f92672">();</span>
+        Message message <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Message<span style="color:#f92672">)</span> hvi<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>message<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></td></tr></table>
 </div>
