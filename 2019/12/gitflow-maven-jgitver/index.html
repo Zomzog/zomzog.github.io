@@ -25,7 +25,7 @@ Gitflow is a branching model for Git where the develop branch contains staging m
 
 In this article, I will present you how we simplified maven version management to avoid merge conflict and ease our release process.
 "/>
-<meta name="generator" content="Hugo 0.67.0" />
+<meta name="generator" content="Hugo 0.67.1" />
 
 
     
@@ -97,7 +97,7 @@ In this article, I will present you how we simplified maven version management t
 
 
 <article class="blog-post">
-    <section class="timeline"><div></div><a class="float-right" href="https://zomzog.fr/2019/12/contract-first/">Contract-First <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a><br>
+    <section class="timeline"><a href="https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> OpenApi generator client auth token management</a><div></div><a class="float-right" href="https://zomzog.fr/2019/12/contract-first/">Contract-First <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a><br>
 </section>
   <header>
     <h2 class="blog-post-title">
@@ -216,15 +216,14 @@ With this approch we do not care of version for every branches except master.</p
 <div class="paragraph">
 <p>For enabling the extension create
 <div class="accordion">
-    <h5>
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-            <i class="fa fa-caret-down" aria-hidden="true"></i>
-            .mvn/extensions.xml
-        </a>
-    </h3>
-
-    <div id="collapseOne" class="collapse">
-        
+  <h5>
+    <a class="collapsed" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+        .mvn/extensions.xml
+    </a>
+  </h5>
+  <div class="collapse" id="collapseExample">
+    
 	<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -250,7 +249,7 @@ With this approch we do not care of version for every branches except master.</p
 </div>
 </div>
 
-    </div>
+  </div>
 </div></p>
 </div>
 <div class="paragraph">
@@ -258,15 +257,14 @@ With this approch we do not care of version for every branches except master.</p
 </div>
 <div class="paragraph">
 <div class="accordion">
-    <h5>
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-            <i class="fa fa-caret-down" aria-hidden="true"></i>
-            .mvn/jgitver.config.xml
-        </a>
-    </h3>
-
-    <div id="collapseOne" class="collapse">
-        
+  <h5>
+    <a class="collapsed" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+        .mvn/jgitver.config.xml
+    </a>
+  </h5>
+  <div class="collapse" id="collapseExample">
+    
 	<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -292,7 +290,7 @@ With this approch we do not care of version for every branches except master.</p
 </div>
 </div>
 
-    </div>
+  </div>
 </div>
 </div>
 <div class="paragraph">
@@ -356,7 +354,7 @@ but for the moment you must add <code>-Djgitver.skip=true</code> in File &gt; Se
   
   <hr>
   <footer>
-    <section class="timeline"><div></div><a class="float-right" href="https://zomzog.fr/2019/12/contract-first/">Contract-First <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a><br>
+    <section class="timeline"><a href="https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> OpenApi generator client auth token management</a><div></div><a class="float-right" href="https://zomzog.fr/2019/12/contract-first/">Contract-First <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a><br>
 </section>
 
   
@@ -428,6 +426,8 @@ but for the moment you must add <code>-Djgitver.skip=true</code> in File &gt; Se
     <ol class="list-unstyled">
 
 
+<li><a href="/2020/03/openapi-generator-client-auth-token-management/">OpenApi generator client auth token management</a></li>
+
 <li><a href="/2019/12/gitflow-maven-jgitver/">Gitflow + Maven = JgitVer</a></li>
 
 <li><a href="/2019/12/contract-first/">Contract-First</a></li>
@@ -435,8 +435,6 @@ but for the moment you must add <code>-Djgitver.skip=true</code> in File &gt; Se
 <li><a href="/2019/10/unit-toolkit/">Unit toolkit</a></li>
 
 <li><a href="/2019/03/api-first/">API-First</a></li>
-
-<li><a href="/2018/09/aspect-oriented-programming/">Aspect Oriented Programming</a></li>
 
     </ol>
   </section>
