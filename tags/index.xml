@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Sat, 14 Mar 2020 21:24:11 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 18:10:00 +0100</lastBuildDate>
     
 	<atom:link href="https://zomzog.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>accent</title>
+      <link>https://zomzog.fr/tags/accent/</link>
+      <pubDate>Wed, 18 Mar 2020 18:10:00 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/accent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ergodox</title>
+      <link>https://zomzog.fr/tags/ergodox/</link>
+      <pubDate>Wed, 18 Mar 2020 18:10:00 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/ergodox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://zomzog.fr/tags/ubuntu/</link>
+      <pubDate>Wed, 18 Mar 2020 18:10:00 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Oauth2</title>
