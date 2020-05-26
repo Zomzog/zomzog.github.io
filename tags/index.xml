@@ -49,15 +49,6 @@
     </item>
     
     <item>
-      <title>OpenAPI</title>
-      <link>https://zomzog.fr/tags/openapi/</link>
-      <pubDate>Sat, 14 Mar 2020 21:24:11 +0100</pubDate>
-      
-      <guid>https://zomzog.fr/tags/openapi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>OpenAPI Generator</title>
       <link>https://zomzog.fr/tags/openapi-generator/</link>
       <pubDate>Sat, 14 Mar 2020 21:24:11 +0100</pubDate>
@@ -108,6 +99,15 @@
       <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenAPI</title>
+      <link>https://zomzog.fr/tags/openapi/</link>
+      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/openapi/</guid>
       <description></description>
     </item>
     
