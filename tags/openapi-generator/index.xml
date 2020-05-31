@@ -29,18 +29,6 @@ we will see how to write it in OAS3.&lt;/p&gt;
     </item>
     
     <item>
-      <title>CFP - Contract first</title>
-      <link>https://zomzog.fr/2020/04/cfp-contract-first/</link>
-      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
-      
-      <guid>https://zomzog.fr/2020/04/cfp-contract-first/</guid>
-      <description>Titre:   Prépare ton pochoir pour des API qui RESTent
-     Abstact: L&amp;#8217;API c&amp;#8217;est l&amp;#8217;UI du développeur backend. Trop souvent on se contente d&amp;#8217;une documentation générée à la fin. Pourquoi ne pas la placer au premier plan ?
- Regroupe ton Crew, prépare ton contrat d&amp;#8217;API et génère ton code pour un tag sans bavure.
-   Reference: Cette présentation sera une adaptation de celle déjà faite en interne avec ces slides : https://zomzog.</description>
-    </item>
-    
-    <item>
       <title>OpenApi generator client auth token management</title>
       <link>https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/</link>
       <pubDate>Sat, 14 Mar 2020 21:24:11 +0100</pubDate>

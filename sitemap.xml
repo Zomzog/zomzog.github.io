@@ -38,36 +38,6 @@
   </url>
   
   <url>
-    <loc>https://zomzog.fr/2020/04/cfp-contract-first/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/2020/04/cfp-unit-toolkit/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/devfest/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/java/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/junit/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/kotlin/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zomzog.fr/tags/accent/</loc>
     <lastmod>2020-03-18T18:10:00+01:00</lastmod>
   </url>
@@ -123,8 +93,18 @@
   </url>
   
   <url>
+    <loc>https://zomzog.fr/tags/java/</loc>
+    <lastmod>2019-12-11T21:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zomzog.fr/tags/openapi/</loc>
     <lastmod>2019-12-11T21:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/tags/junit/</loc>
+    <lastmod>2019-10-09T23:05:11+01:00</lastmod>
   </url>
   
   <url>
