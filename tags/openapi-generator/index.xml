@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Tue, 28 Apr 2020 21:24:11 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2020 19:24:11 +0100</lastBuildDate>
     
 	<atom:link href="https://zomzog.fr/tags/openapi-generator/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenApi generator inheritance</title>
+      <link>https://zomzog.fr/2020/05/openapi-generator-inheritance/</link>
+      <pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2020/05/openapi-generator-inheritance/</guid>
+      <description>&lt;div class=&#34;paragraph text-center&#34;&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;https://zomzog.fr/images/openapi-inheritance/openapi-generator-logo.svg&#34; alt=&#34;icon&#34; width=&#34;200&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We have to create a new API with inheritance in the model.
+To continue with the contract first way,
+we will see how to write it in OAS3.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>CFP - Contract first</title>

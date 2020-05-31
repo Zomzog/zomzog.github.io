@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://zomzog.fr/tags/oas3/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/tags/openapi-generator/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/2020/05/openapi-generator-inheritance/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/post/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/tags/springboot/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/tags/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zomzog.fr/2020/04/cfp-contract-first/</loc>
     <lastmod>2020-04-28T21:24:11+01:00</lastmod>
   </url>
@@ -29,31 +64,6 @@
   
   <url>
     <loc>https://zomzog.fr/tags/kotlin/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/openapi-generator/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/post/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/springboot/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/</loc>
-    <lastmod>2020-04-28T21:24:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/</loc>
     <lastmod>2020-04-28T21:24:11+01:00</lastmod>
   </url>
   
