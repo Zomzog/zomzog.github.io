@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kotlin on Zomzog&#39;s blog</title>
+    <link>https://zomzog.fr/tags/kotlin/</link>
+    <description>Recent content in Kotlin on Zomzog&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
+    <lastBuildDate>Tue, 28 Apr 2020 21:24:11 +0100</lastBuildDate>
+    
+	<atom:link href="https://zomzog.fr/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CFP - Unit toolkit</title>
+      <link>https://zomzog.fr/2020/04/cfp-unit-toolkit/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/2020/04/cfp-unit-toolkit/</guid>
+      <description>Type: Quicky
+   Titre:   Passez vos tests du graffiti au street art
+  Un bon artiste teste de bons outils
+     Abstact: Une bonne couverture de tests c&amp;#8217;est bien, des tests qui expliquent le fonctionnel simplement c&amp;#8217;est encore mieux.
+ Présenter le résultat d&amp;#8217;une migration de tests junit4 à junit5 avec l&amp;#8217;utilisation des nouvelles fonctionnalités et l&amp;#8217;ajout de librairies pour les rendre plus parlants.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,10 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Wed, 18 Mar 2020 18:10:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 21:24:11 +0100</lastBuildDate>
     
 	<atom:link href="https://zomzog.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevFest</title>
+      <link>https://zomzog.fr/tags/devfest/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/devfest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://zomzog.fr/tags/java/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Junit</title>
+      <link>https://zomzog.fr/tags/junit/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/junit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin</title>
+      <link>https://zomzog.fr/tags/kotlin/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenAPI Generator</title>
+      <link>https://zomzog.fr/tags/openapi-generator/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/openapi-generator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>https://zomzog.fr/tags/springboot/</link>
+      <pubDate>Tue, 28 Apr 2020 21:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/springboot/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>accent</title>
@@ -49,24 +103,6 @@
     </item>
     
     <item>
-      <title>OpenAPI Generator</title>
-      <link>https://zomzog.fr/tags/openapi-generator/</link>
-      <pubDate>Sat, 14 Mar 2020 21:24:11 +0100</pubDate>
-      
-      <guid>https://zomzog.fr/tags/openapi-generator/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SpringBoot</title>
-      <link>https://zomzog.fr/tags/springboot/</link>
-      <pubDate>Sat, 14 Mar 2020 21:24:11 +0100</pubDate>
-      
-      <guid>https://zomzog.fr/tags/springboot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Gitflow</title>
       <link>https://zomzog.fr/tags/gitflow/</link>
       <pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate>
@@ -94,29 +130,11 @@
     </item>
     
     <item>
-      <title>Java</title>
-      <link>https://zomzog.fr/tags/java/</link>
-      <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
-      
-      <guid>https://zomzog.fr/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>OpenAPI</title>
       <link>https://zomzog.fr/tags/openapi/</link>
       <pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/openapi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JUnit</title>
-      <link>https://zomzog.fr/tags/junit/</link>
-      <pubDate>Wed, 09 Oct 2019 23:05:11 +0100</pubDate>
-      
-      <guid>https://zomzog.fr/tags/junit/</guid>
       <description></description>
     </item>
     
