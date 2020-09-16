@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Sun, 23 Sep 2018 19:18:21 +0100</lastBuildDate>
-    
-	<atom:link href="https://zomzog.fr/tags/aspectj/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 23 Sep 2018 19:18:21 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/aspectj/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aspect Oriented Programming</title>
       <link>https://zomzog.fr/2018/09/aspect-oriented-programming/</link>

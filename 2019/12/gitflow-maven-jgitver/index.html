@@ -25,7 +25,7 @@ Gitflow is a branching model for Git where the develop branch contains staging m
 
 In this article, I will present you how we simplified maven version management to avoid merge conflict and ease our release process.
 "/>
-<meta name="generator" content="Hugo 0.74.3" />
+<meta name="generator" content="Hugo 0.75.1" />
 
 
     
@@ -120,14 +120,14 @@ In this article, I will present you how we simplified maven version management t
 <h2 id="_gitflow">Gitflow</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this post I will talk about the default process (feature &#8594; develop &#8594; release &#8594; master) but the same thing can be done for hotfix process.</p>
+<p>In this post I will talk about the default process (feature → develop → release → master) but the same thing can be done for hotfix process.</p>
 </div>
 <div class="paragraph">
 <p>Here an example of a workflow :</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="/images/jgitver-gitflow/gitflow.png" alt="gitflow">
+<img src="/images/jgitver-gitflow/gitflow.png" alt="gitflow"/>
 </div>
 </div>
 <div class="paragraph">
@@ -145,7 +145,7 @@ When the first feature is finished a release branch is created but the second fe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="/images/jgitver-gitflow/maven-version.png" alt="maven version">
+<img src="/images/jgitver-gitflow/maven-version.png" alt="maven version"/>
 </div>
 </div>
 <div class="paragraph">
@@ -166,7 +166,7 @@ When the first feature is finished a release branch is created but the second fe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="/images/jgitver-gitflow/maven-release.png" alt="maven release">
+<img src="/images/jgitver-gitflow/maven-release.png" alt="maven release"/>
 </div>
 </div>
 <div class="paragraph">
@@ -193,14 +193,14 @@ With this approch we do not care of version for every branches except master.</p
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="/images/jgitver-gitflow/gitflow.png" alt="gitflow">
+<img src="/images/jgitver-gitflow/gitflow.png" alt="gitflow"/>
 </div>
 </div>
 <div class="paragraph">
 <p>Version 1.0.0 and 1.1.0 will be github tags.</p>
 </div>
 <div class="paragraph">
-<p>For all other commit we don&#8217;t care of the version, they can all be 0.0.0 or a more useful one like commitId.branch</p>
+<p>For all other commit we don’t care of the version, they can all be 0.0.0 or a more useful one like commitId.branch</p>
 </div>
 </div>
 </div>
@@ -310,7 +310,7 @@ This will avoid different version with the same commitId</p>
 <h2 id="_new_release_process">New release process</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now we don&#8217;t need anymore update on pom version.
+<p>Now we don’t need anymore update on pom version.
 The releasing process is now to merge the release commit to master and add an annotated tag to it like <code>1.0.0</code>.</p>
 </div>
 <div class="paragraph">

@@ -27,7 +27,7 @@ With multiple microservices, we need to pass user token when we call another ser
 
 In this article, I will show how to easily pass this token with a generated RestTemplate client and Springboot.
 "/>
-<meta name="generator" content="Hugo 0.74.3" />
+<meta name="generator" content="Hugo 0.75.1" />
 
 
     
@@ -258,119 +258,119 @@ It contains two servers.</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
-<span style="color:#66d9ef">openapi</span>: <span style="color:#e6db74">&#34;3.0.1&#34;</span>
-<span style="color:#66d9ef">info</span>:
-  <span style="color:#66d9ef">title</span>: <span style="color:#e6db74">&#34;My Little Pony&#34;</span>
-  <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Friendship is magic&#34;</span>
-  <span style="color:#66d9ef">contact</span>: {}
-  <span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;1.0.0&#34;</span>
-<span style="color:#66d9ef">paths</span>:
-  <span style="color:#66d9ef">/ponies</span>:
-    <span style="color:#66d9ef">summary</span>: <span style="color:#e6db74">&#34;Everything for ponies&#34;</span>
-    <span style="color:#66d9ef">get</span>:
-      <span style="color:#66d9ef">summary</span>: <span style="color:#e6db74">&#34;List&#34;</span>
-      <span style="color:#66d9ef">operationId</span>: <span style="color:#e6db74">&#34;list&#34;</span>
-      <span style="color:#66d9ef">parameters</span>:
-        - <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;name&#34;</span>
-          <span style="color:#66d9ef">in</span>: <span style="color:#e6db74">&#34;query&#34;</span>
-          <span style="color:#66d9ef">required</span>: <span style="color:#66d9ef">false</span>
-          <span style="color:#66d9ef">schema</span>:
-            <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-          <span style="color:#66d9ef">example</span>: <span style="color:#e6db74">&#34;Rainbow Dash&#34;</span>
-      <span style="color:#66d9ef">responses</span>:
+<span style="color:#f92672">openapi</span>: <span style="color:#e6db74">&#34;3.0.1&#34;</span>
+<span style="color:#f92672">info</span>:
+  <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;My Little Pony&#34;</span>
+  <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Friendship is magic&#34;</span>
+  <span style="color:#f92672">contact</span>: {}
+  <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;1.0.0&#34;</span>
+<span style="color:#f92672">paths</span>:
+  <span style="color:#f92672">/ponies</span>:
+    <span style="color:#f92672">summary</span>: <span style="color:#e6db74">&#34;Everything for ponies&#34;</span>
+    <span style="color:#f92672">get</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#e6db74">&#34;List&#34;</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#e6db74">&#34;list&#34;</span>
+      <span style="color:#f92672">parameters</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;name&#34;</span>
+          <span style="color:#f92672">in</span>: <span style="color:#e6db74">&#34;query&#34;</span>
+          <span style="color:#f92672">required</span>: <span style="color:#66d9ef">false</span>
+          <span style="color:#f92672">schema</span>:
+            <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+          <span style="color:#f92672">example</span>: <span style="color:#e6db74">&#34;Rainbow Dash&#34;</span>
+      <span style="color:#f92672">responses</span>:
         <span style="color:#e6db74">&#34;200&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
-          <span style="color:#66d9ef">content</span>:
-            <span style="color:#66d9ef">application/json</span>:
-              <span style="color:#66d9ef">schema</span>:
-                <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;array&#34;</span>
-                <span style="color:#66d9ef">items</span>:
-                  <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;array&#34;</span>
+                <span style="color:#f92672">items</span>:
+                  <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
         <span style="color:#e6db74">&#34;400&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 400&#34;</span>
-    <span style="color:#66d9ef">post</span>:
-      <span style="color:#66d9ef">summary</span>: <span style="color:#e6db74">&#34;Create&#34;</span>
-      <span style="color:#66d9ef">operationId</span>: <span style="color:#e6db74">&#34;create&#34;</span>
-      <span style="color:#66d9ef">requestBody</span>:
-        <span style="color:#66d9ef">content</span>:
-          <span style="color:#66d9ef">application/json</span>:
-            <span style="color:#66d9ef">schema</span>:
-              <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-      <span style="color:#66d9ef">responses</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 400&#34;</span>
+    <span style="color:#f92672">post</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#e6db74">&#34;Create&#34;</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#e6db74">&#34;create&#34;</span>
+      <span style="color:#f92672">requestBody</span>:
+        <span style="color:#f92672">content</span>:
+          <span style="color:#f92672">application/json</span>:
+            <span style="color:#f92672">schema</span>:
+              <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+      <span style="color:#f92672">responses</span>:
         <span style="color:#e6db74">&#34;201&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 201&#34;</span>
-          <span style="color:#66d9ef">content</span>:
-            <span style="color:#66d9ef">application/json</span>:
-              <span style="color:#66d9ef">schema</span>:
-                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 201&#34;</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
         <span style="color:#e6db74">&#34;400&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 400&#34;</span>
-  /ponies/{<span style="color:#66d9ef">ponyId}</span>:
-    <span style="color:#66d9ef">get</span>:
-      <span style="color:#66d9ef">summary</span>: <span style="color:#e6db74">&#34;Get one&#34;</span>
-      <span style="color:#66d9ef">operationId</span>: <span style="color:#e6db74">&#34;getOne&#34;</span>
-      <span style="color:#66d9ef">responses</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 400&#34;</span>
+  <span style="color:#ae81ff">/ponies/{ponyId}:</span>
+    <span style="color:#f92672">get</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#e6db74">&#34;Get one&#34;</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#e6db74">&#34;getOne&#34;</span>
+      <span style="color:#f92672">responses</span>:
         <span style="color:#e6db74">&#34;200&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
-          <span style="color:#66d9ef">content</span>:
-            <span style="color:#66d9ef">application/json</span>:
-              <span style="color:#66d9ef">schema</span>:
-                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-    <span style="color:#66d9ef">put</span>:
-      <span style="color:#66d9ef">summary</span>: <span style="color:#e6db74">&#34;Update&#34;</span>
-      <span style="color:#66d9ef">operationId</span>: <span style="color:#e6db74">&#34;update&#34;</span>
-      <span style="color:#66d9ef">requestBody</span>:
-        <span style="color:#66d9ef">content</span>:
-          <span style="color:#66d9ef">application/json</span>:
-            <span style="color:#66d9ef">schema</span>:
-              <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-      <span style="color:#66d9ef">responses</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+    <span style="color:#f92672">put</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#e6db74">&#34;Update&#34;</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#e6db74">&#34;update&#34;</span>
+      <span style="color:#f92672">requestBody</span>:
+        <span style="color:#f92672">content</span>:
+          <span style="color:#f92672">application/json</span>:
+            <span style="color:#f92672">schema</span>:
+              <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+      <span style="color:#f92672">responses</span>:
         <span style="color:#e6db74">&#34;200&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
-          <span style="color:#66d9ef">content</span>:
-            <span style="color:#66d9ef">application/json</span>:
-              <span style="color:#66d9ef">schema</span>:
-                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-    <span style="color:#66d9ef">delete</span>:
-      <span style="color:#66d9ef">summary</span>: <span style="color:#e6db74">&#34;Delete one&#34;</span>
-      <span style="color:#66d9ef">operationId</span>: <span style="color:#e6db74">&#34;deleteOne&#34;</span>
-      <span style="color:#66d9ef">responses</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+    <span style="color:#f92672">delete</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#e6db74">&#34;Delete one&#34;</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#e6db74">&#34;deleteOne&#34;</span>
+      <span style="color:#f92672">responses</span>:
         <span style="color:#e6db74">&#34;200&#34;</span>:
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
-    <span style="color:#66d9ef">parameters</span>:
-      - <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;ponyId&#34;</span>
-        <span style="color:#66d9ef">in</span>: <span style="color:#e6db74">&#34;path&#34;</span>
-        <span style="color:#66d9ef">required</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#66d9ef">schema</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-<span style="color:#66d9ef">components</span>:
-  <span style="color:#66d9ef">schemas</span>:
-    <span style="color:#66d9ef">Pony</span>:
-      <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-      <span style="color:#66d9ef">required</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Status 200&#34;</span>
+    <span style="color:#f92672">parameters</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;ponyId&#34;</span>
+        <span style="color:#f92672">in</span>: <span style="color:#e6db74">&#34;path&#34;</span>
+        <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#f92672">schema</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+<span style="color:#f92672">components</span>:
+  <span style="color:#f92672">schemas</span>:
+    <span style="color:#f92672">Pony</span>:
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+      <span style="color:#f92672">required</span>:
         - <span style="color:#e6db74">&#34;Color&#34;</span>
         - <span style="color:#e6db74">&#34;Name&#34;</span>
-      <span style="color:#66d9ef">properties</span>:
-        <span style="color:#66d9ef">Id</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-        <span style="color:#66d9ef">Name</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-          <span style="color:#66d9ef">minLength</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">maxLength</span>: <span style="color:#ae81ff">100</span>
-          <span style="color:#66d9ef">example</span>: <span style="color:#e6db74">&#34;Big McIntosh&#34;</span>
-        <span style="color:#66d9ef">Color</span>:
-          <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Color&#34;</span>
-        <span style="color:#66d9ef">CreatedAt</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
-          <span style="color:#66d9ef">format</span>: <span style="color:#e6db74">&#34;int64&#34;</span>
-          <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#34;Timestamp&#34;</span>
-    <span style="color:#66d9ef">Color</span>:
-      <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-      <span style="color:#66d9ef">enum</span>:
+      <span style="color:#f92672">properties</span>:
+        <span style="color:#f92672">Id</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+        <span style="color:#f92672">Name</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+          <span style="color:#f92672">minLength</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">maxLength</span>: <span style="color:#ae81ff">100</span>
+          <span style="color:#f92672">example</span>: <span style="color:#e6db74">&#34;Big McIntosh&#34;</span>
+        <span style="color:#f92672">Color</span>:
+          <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Color&#34;</span>
+        <span style="color:#f92672">CreatedAt</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
+          <span style="color:#f92672">format</span>: <span style="color:#e6db74">&#34;int64&#34;</span>
+          <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Timestamp&#34;</span>
+    <span style="color:#f92672">Color</span>:
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+      <span style="color:#f92672">enum</span>:
         - <span style="color:#e6db74">&#34;RED&#34;</span>
         - <span style="color:#e6db74">&#34;RAINBOW&#34;</span>
         - <span style="color:#e6db74">&#34;BLUE&#34;</span>
-      <span style="color:#66d9ef">example</span>: <span style="color:#e6db74">&#34;RED&#34;</span></code></pre></td></tr></table>
+      <span style="color:#f92672">example</span>: <span style="color:#e6db74">&#34;RED&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
 

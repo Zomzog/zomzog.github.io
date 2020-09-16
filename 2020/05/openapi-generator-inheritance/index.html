@@ -29,7 +29,7 @@ We have to create a new API with inheritance in the model.
 To continue with the contract first way,
 we will see how to write it in OAS3.
 "/>
-<meta name="generator" content="Hugo 0.74.3" />
+<meta name="generator" content="Hugo 0.75.1" />
 
 
     
@@ -115,7 +115,7 @@ we will see how to write it in OAS3.
 </p>
   </header>
   <div class="paragraph text-center">
-<p><span class="image"><img src="/images/openapi-inheritance/openapi-generator-logo.svg" alt="icon" width="200"></span></p>
+<p><span class="image"><img src="/images/openapi-inheritance/openapi-generator-logo.svg" alt="icon" width="200"/></span></p>
 </div>
 <div class="paragraph">
 <p>We have to create a new API with inheritance in the model.
@@ -130,7 +130,7 @@ we will see how to write it in OAS3.</p>
 We will work with two kinds of ponies, pegasi and unicorn.</p>
 </div>
 <div class="paragraph text-center">
-<p><span class="image"><img src="/images/openapi-inheritance/target-uml.png" alt="target uml"></span></p>
+<p><span class="image"><img src="/images/openapi-inheritance/target-uml.png" alt="target uml"/></span></p>
 </div>
 </div>
 </div>
@@ -180,29 +180,29 @@ We will work with two kinds of ponies, pegasi and unicorn.</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
-<span style="color:#66d9ef">components</span>:
-  <span style="color:#66d9ef">schemas</span>:
-    <span style="color:#66d9ef">Pony</span>:
-      <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-      <span style="color:#66d9ef">properties</span>:
-        <span style="color:#66d9ef">name</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-    <span style="color:#66d9ef">Pegasi</span>:
-      <span style="color:#66d9ef">allOf</span>:
-        - <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-        - <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-          <span style="color:#66d9ef">properties</span>:
-            <span style="color:#66d9ef">wingsColors</span>:
-              <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-              <span style="color:#66d9ef">default</span>: <span style="color:#e6db74">&#34;RED&#34;</span>
-    <span style="color:#66d9ef">Unicorn</span>:
-      <span style="color:#66d9ef">allOf</span>:
-        - <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-        - <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-          <span style="color:#66d9ef">properties</span>:
-            <span style="color:#66d9ef">cornSize</span>:
-              <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
-              <span style="color:#66d9ef">default</span>: <span style="color:#ae81ff">10</span>
+<span style="color:#f92672">components</span>:
+  <span style="color:#f92672">schemas</span>:
+    <span style="color:#f92672">Pony</span>:
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+      <span style="color:#f92672">properties</span>:
+        <span style="color:#f92672">name</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+    <span style="color:#f92672">Pegasi</span>:
+      <span style="color:#f92672">allOf</span>:
+        - <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+        - <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+          <span style="color:#f92672">properties</span>:
+            <span style="color:#f92672">wingsColors</span>:
+              <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+              <span style="color:#f92672">default</span>: <span style="color:#e6db74">&#34;RED&#34;</span>
+    <span style="color:#f92672">Unicorn</span>:
+      <span style="color:#f92672">allOf</span>:
+        - <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+        - <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+          <span style="color:#f92672">properties</span>:
+            <span style="color:#f92672">cornSize</span>:
+              <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
+              <span style="color:#f92672">default</span>: <span style="color:#ae81ff">10</span>
 ---</code></pre></td></tr></table>
 </div>
 </div>
@@ -213,7 +213,7 @@ We will work with two kinds of ponies, pegasi and unicorn.</p>
 <div class="paragraph">
 <p>With this, we will have Pegasi and Unicorn that extend Pony.
 But if we generate the controller,
-it will not work well because it can&#8217;t say when to build a Pegasi or a Unicorn.</p>
+it will not work well because it can’t say when to build a Pegasi or a Unicorn.</p>
 </div>
 <div class="paragraph">
 <p>To specify this we need to use a discriminator.</p>
@@ -263,34 +263,34 @@ it will not work well because it can&#8217;t say when to build a Pegasi or a Uni
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
-<span style="color:#66d9ef">components</span>:
-  <span style="color:#66d9ef">schemas</span>:
-    <span style="color:#66d9ef">Pony</span>:
-      <span style="color:#66d9ef">discriminator</span>:
-        <span style="color:#66d9ef">propertyName</span>: ponyType
-      <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-      <span style="color:#66d9ef">properties</span>:
-        <span style="color:#66d9ef">name</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-        <span style="color:#66d9ef">ponyType</span>:
-          <span style="color:#66d9ef">type</span>: string
+<span style="color:#f92672">components</span>:
+  <span style="color:#f92672">schemas</span>:
+    <span style="color:#f92672">Pony</span>:
+      <span style="color:#f92672">discriminator</span>:
+        <span style="color:#f92672">propertyName</span>: <span style="color:#ae81ff">ponyType</span>
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+      <span style="color:#f92672">properties</span>:
+        <span style="color:#f92672">name</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+        <span style="color:#f92672">ponyType</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
 
-    <span style="color:#66d9ef">Pegasi</span>:
-      <span style="color:#66d9ef">allOf</span>:
-        - <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-        - <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-          <span style="color:#66d9ef">properties</span>:
-            <span style="color:#66d9ef">wingsColors</span>:
-              <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-              <span style="color:#66d9ef">default</span>: <span style="color:#e6db74">&#34;RED&#34;</span>
-    <span style="color:#66d9ef">Unicorn</span>:
-      <span style="color:#66d9ef">allOf</span>:
-        - <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-        - <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-          <span style="color:#66d9ef">properties</span>:
-            <span style="color:#66d9ef">cornSize</span>:
-              <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
-              <span style="color:#66d9ef">default</span>: <span style="color:#ae81ff">10</span>
+    <span style="color:#f92672">Pegasi</span>:
+      <span style="color:#f92672">allOf</span>:
+        - <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+        - <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+          <span style="color:#f92672">properties</span>:
+            <span style="color:#f92672">wingsColors</span>:
+              <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+              <span style="color:#f92672">default</span>: <span style="color:#e6db74">&#34;RED&#34;</span>
+    <span style="color:#f92672">Unicorn</span>:
+      <span style="color:#f92672">allOf</span>:
+        - <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+        - <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+          <span style="color:#f92672">properties</span>:
+            <span style="color:#f92672">cornSize</span>:
+              <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
+              <span style="color:#f92672">default</span>: <span style="color:#ae81ff">10</span>
 ---</code></pre></td></tr></table>
 </div>
 </div>
@@ -354,37 +354,37 @@ it can be specified with mapping property.</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
-<span style="color:#66d9ef">components</span>:
-  <span style="color:#66d9ef">schemas</span>:
-    <span style="color:#66d9ef">Pony</span>:
-      <span style="color:#66d9ef">discriminator</span>:
-        <span style="color:#66d9ef">propertyName</span>: ponyType
-        <span style="color:#66d9ef">mapping</span>:
-          <span style="color:#66d9ef">pegasi</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pegasi&#34;</span>
-          <span style="color:#66d9ef">unicorn</span>: <span style="color:#e6db74">&#34;#/components/schemas/Unicorn&#34;</span>
-      <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-      <span style="color:#66d9ef">properties</span>:
-        <span style="color:#66d9ef">name</span>:
-          <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-        <span style="color:#66d9ef">ponyType</span>:
-          <span style="color:#66d9ef">type</span>: string
+<span style="color:#f92672">components</span>:
+  <span style="color:#f92672">schemas</span>:
+    <span style="color:#f92672">Pony</span>:
+      <span style="color:#f92672">discriminator</span>:
+        <span style="color:#f92672">propertyName</span>: <span style="color:#ae81ff">ponyType</span>
+        <span style="color:#f92672">mapping</span>:
+          <span style="color:#f92672">pegasi</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pegasi&#34;</span>
+          <span style="color:#f92672">unicorn</span>: <span style="color:#e6db74">&#34;#/components/schemas/Unicorn&#34;</span>
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+      <span style="color:#f92672">properties</span>:
+        <span style="color:#f92672">name</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+        <span style="color:#f92672">ponyType</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
 
-    <span style="color:#66d9ef">Pegasi</span>:
-      <span style="color:#66d9ef">allOf</span>:
-        - <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-        - <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-          <span style="color:#66d9ef">properties</span>:
-            <span style="color:#66d9ef">wingsColors</span>:
-              <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
-              <span style="color:#66d9ef">default</span>: <span style="color:#e6db74">&#34;RED&#34;</span>
-    <span style="color:#66d9ef">Unicorn</span>:
-      <span style="color:#66d9ef">allOf</span>:
-        - <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
-        - <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
-          <span style="color:#66d9ef">properties</span>:
-            <span style="color:#66d9ef">cornSize</span>:
-              <span style="color:#66d9ef">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
-              <span style="color:#66d9ef">default</span>: <span style="color:#ae81ff">10</span>
+    <span style="color:#f92672">Pegasi</span>:
+      <span style="color:#f92672">allOf</span>:
+        - <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+        - <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+          <span style="color:#f92672">properties</span>:
+            <span style="color:#f92672">wingsColors</span>:
+              <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+              <span style="color:#f92672">default</span>: <span style="color:#e6db74">&#34;RED&#34;</span>
+    <span style="color:#f92672">Unicorn</span>:
+      <span style="color:#f92672">allOf</span>:
+        - <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#34;#/components/schemas/Pony&#34;</span>
+        - <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;object&#34;</span>
+          <span style="color:#f92672">properties</span>:
+            <span style="color:#f92672">cornSize</span>:
+              <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
+              <span style="color:#f92672">default</span>: <span style="color:#ae81ff">10</span>
 ---</code></pre></td></tr></table>
 </div>
 </div>
@@ -399,8 +399,8 @@ it can be specified with mapping property.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Our first try was with oneOf,
-but it&#8217;s not for inheritance it&#8217;s a composition,
-it&#8217;s create an object that can be both a Pegasi and a Unicorn,
+but it’s not for inheritance it’s a composition,
+it’s create an object that can be both a Pegasi and a Unicorn,
 but in a way that says Pegasi and Unicorn are two disjoint objects with nothing common.</p>
 </div>
 </div>

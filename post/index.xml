@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Sun, 31 May 2020 19:24:11 +0100</lastBuildDate>
-    
-	<atom:link href="https://zomzog.fr/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 31 May 2020 19:24:11 +0100</lastBuildDate><atom:link href="https://zomzog.fr/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenApi generator inheritance</title>
       <link>https://zomzog.fr/2020/05/openapi-generator-inheritance/</link>
@@ -19,7 +15,7 @@
       
       <guid>https://zomzog.fr/2020/05/openapi-generator-inheritance/</guid>
       <description>&lt;div class=&#34;paragraph text-center&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;https://zomzog.fr/images/openapi-inheritance/openapi-generator-logo.svg&#34; alt=&#34;icon&#34; width=&#34;200&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;https://zomzog.fr/images/openapi-inheritance/openapi-generator-logo.svg&#34; alt=&#34;icon&#34; width=&#34;200&#34;/&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;We have to create a new API with inheritance in the model.
@@ -35,11 +31,11 @@ we will see how to write it in OAS3.&lt;/p&gt;
       
       <guid>https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/</guid>
       <description>&lt;div class=&#34;paragraph text-center&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;https://zomzog.fr/images/ergodox-accent/ergodox.png&#34; alt=&#34;icon&#34; width=&#34;500&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;https://zomzog.fr/images/ergodox-accent/ergodox.png&#34; alt=&#34;icon&#34; width=&#34;500&#34;/&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;I try to configure an ergodox-ez keyboard with developper layout but also to be able to type french text.
-So I don&amp;#8217;t want to set US-International layout because I don&amp;#8217;t want dead key on all &lt;code&gt;&#39;&lt;/code&gt; and &lt;code&gt;`&lt;/code&gt; when I develop.&lt;/p&gt;
+So I don’t want to set US-International layout because I don’t want dead key on all &lt;code&gt;&amp;#39;&lt;/code&gt; and &lt;code&gt;`&lt;/code&gt; when I develop.&lt;/p&gt;
 &lt;/div&gt;</description>
     </item>
     
@@ -123,12 +119,12 @@ With multiple microservices, we need to pass user token when we call another ser
       
       <guid>https://zomzog.fr/2017/12/prestashop-1.7-module/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;I&amp;#8217;ve installed a Prestashop store because&amp;#8230;&amp;#8203; It&amp;#8217;s free and open source.
-I need some modules like EU cookie banner and I don&amp;#8217;t want to pay 30+€ just for that.&lt;/p&gt;
+&lt;p&gt;I’ve installed a Prestashop store because…​ It’s free and open source.
+I need some modules like EU cookie banner and I don’t want to pay 30+€ just for that.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;I looked at the community solution but I didn&amp;#8217;t find a solution that transcended me&amp;#8230;&amp;#8203;
-And in fact, it&amp;#8217;s a good &#34;hello world&#34; example for me to learn how to create modules for Prestashop.&lt;/p&gt;
+&lt;p&gt;I looked at the community solution but I didn’t find a solution that transcended me…​
+And in fact, it’s a good &amp;#34;hello world&amp;#34; example for me to learn how to create modules for Prestashop.&lt;/p&gt;
 &lt;/div&gt;</description>
     </item>
     
@@ -139,10 +135,10 @@ And in fact, it&amp;#8217;s a good &#34;hello world&#34; example for me to learn
       
       <guid>https://zomzog.fr/2017/11/springboot-embeded-flowable/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;In this tutorial, we&amp;#8217;ll see how to initiate a springboot project with flowable.&lt;/p&gt;
+&lt;p&gt;In this tutorial, we’ll see how to initiate a springboot project with flowable.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;We will build an API to make a pony says &#34;hello &amp;lt;name&amp;gt;&#34; or &#34;Eeyup&#34; if the pony is Big McIntosh&lt;/p&gt;
+&lt;p&gt;We will build an API to make a pony says &amp;#34;hello &amp;lt;name&amp;gt;&amp;#34; or &amp;#34;Eeyup&amp;#34; if the pony is Big McIntosh&lt;/p&gt;
 &lt;/div&gt;</description>
     </item>
     
