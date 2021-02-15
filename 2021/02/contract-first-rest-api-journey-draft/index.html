@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Contract-first Rest API journey - Draft" />
+<meta property="og:description" content="
+
+
+
+Lucky me! I have my API contract created with my magic designer tool!
+And now? Is it useful for something else that being yaml/json file?
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zomzog.fr/2021/02/contract-first-rest-api-journey-draft/" />
+<meta property="article:published_time" content="2021-02-15T18:10:00+01:00" />
+<meta property="article:modified_time" content="2021-02-15T18:10:00+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Contract-first Rest API journey - Draft"/>
+<meta name="twitter:description" content="
+
+
+
+Lucky me! I have my API contract created with my magic designer tool!
+And now? Is it useful for something else that being yaml/json file?
+"/>
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Contract-first Rest API journey - Draft",
+  "url": "https:\/\/zomzog.fr\/2021\/02\/contract-first-rest-api-journey-draft\/",
+  "wordCount": "448",
+  "datePublished": "2021-02-15T18:10:00\u002b01:00",
+  "dateModified": "2021-02-15T18:10:00\u002b01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Thibault Duperron"
+  },
+  "keywords": "Contract-First, OpenAPI Generator, SpringBoot"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://zomzog.fr/2021/02/contract-first-rest-api-journey-draft/">
+    
+      <script src="https://zomzog.fr/js/jquery.js"></script>
+      <script src="https://zomzog.fr/js/popper.js"></script>
+      <script src="https://zomzog.fr/js/bootstrap.js"></script>
+    
+
+    <title>Contract-first Rest API journey - Draft | Zomzog&#39;s blog</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://zomzog.fr/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://zomzog.fr/">Zomzog's blog</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://zomzog.fr/" rel="home"></a></h1>
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-9 col-lg-9 blog-main">
+
+          
+
+
+<article class="blog-post">
+    <section class="timeline"><div></div><a class="float-right" href="https://zomzog.fr/2020/05/openapi-generator-inheritance/">OpenApi generator inheritance <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a><br>
+</section>
+  <header>
+    <h2 class="blog-post-title">
+      <a href="https://zomzog.fr/2021/02/contract-first-rest-api-journey-draft/">Contract-first Rest API journey - Draft</a>
+      <a class="edit" href="https://github.com/zomzog/zomzog.fr/edit/master/content/post/articles/contract-first-journey/contract-first-journey.adoc"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+    </h2>
+    <p class="blog-post-meta"><time datetime="2021-02-15T18:10:00&#43;01:00">Mon 15 Feb 2021</time> by Thibault Duperron in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/contract-first" rel="tag">Contract-First</a>, <a href="/tags/openapi-generator" rel="tag">OpenAPI Generator</a>, <a href="/tags/springboot" rel="tag">SpringBoot</a>
+
+</p>
+  </header>
+  <div class="paragraph text-center">
+<p><span class="image"><img src="/images/contract-first-journey/header.png" alt="icon" width="300"/></span></p>
+</div>
+<div class="paragraph">
+<p>Lucky me! I have my API contract created with my magic designer tool!
+And now? Is it useful for something else that being yaml/json file?</p>
+</div>
+<div class="sect1">
+<h2 id="_why">Why ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I will use one contract for all example,
+The idea is to see that once the contract created everyone can work in parallel and consistency with the contract can easily be ensured.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_demo_contract">The demo contract</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this journey, I will use my classical Pony management API.</p>
+</div>
+<div class="paragraph">
+<div class="accordion">
+  <h5>
+    <a class="collapsed" data-toggle="collapse" href="#api" role="button" aria-expanded="false" aria-controls="api">
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+        api.yml
+    </a>
+  </h5>
+  <div class="collapse" id="api">
+    
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+<span style="color:#f92672">openapi</span>: <span style="color:#ae81ff">3.0.0</span>
+<span style="color:#f92672">info</span>:
+  <span style="color:#f92672">title</span>: <span style="color:#ae81ff">Ponies</span>
+  <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;1.0&#39;</span>
+  <span style="color:#f92672">contact</span>:
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Zomzog</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Pony management API</span>
+<span style="color:#f92672">servers</span>:
+  - <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#39;http://localhost:3000&#39;</span>
+<span style="color:#f92672">paths</span>:
+  <span style="color:#e6db74">&#39;/ponies/{ponyId}&#39;</span>:
+    <span style="color:#f92672">parameters</span>:
+      - <span style="color:#f92672">schema</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">integer</span>
+        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ponyId</span>
+        <span style="color:#f92672">in</span>: <span style="color:#ae81ff">path</span>
+        <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">get</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#ae81ff">Get Pony Info by Pony ID</span>
+      <span style="color:#f92672">responses</span>:
+        <span style="color:#f92672">&#39;200&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Pony Found</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Pony&#39;</span>
+              <span style="color:#f92672">examples</span>: {}
+        <span style="color:#f92672">&#39;404&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Pony Not Found</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#ae81ff">get-one</span>
+      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Retrieve the information of the Pony with the matching Pony ID.</span>
+      <span style="color:#f92672">tags</span>:
+        - <span style="color:#ae81ff">ponies</span>
+    <span style="color:#f92672">put</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#ae81ff">Update Pony Information</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#ae81ff">update-Ponys-PonyId</span>
+      <span style="color:#f92672">responses</span>:
+        <span style="color:#f92672">&#39;200&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Pony Updated</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Pony&#39;</span>
+              <span style="color:#f92672">examples</span>: {}
+        <span style="color:#f92672">&#39;404&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Pony Not Found</span>
+        <span style="color:#f92672">&#39;409&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Email Already Taken</span>
+      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Update the infromation of an existing Pony.</span>
+      <span style="color:#f92672">requestBody</span>:
+        <span style="color:#f92672">content</span>:
+          <span style="color:#f92672">application/json</span>:
+            <span style="color:#f92672">schema</span>:
+              <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Pony&#39;</span>
+            <span style="color:#f92672">examples</span>: {}
+        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Update Pony properties.</span>
+      <span style="color:#f92672">tags</span>:
+        - <span style="color:#ae81ff">ponies</span>
+  <span style="color:#f92672">/ponies</span>:
+    <span style="color:#f92672">post</span>:
+      <span style="color:#f92672">summary</span>: <span style="color:#ae81ff">Create New Pony</span>
+      <span style="color:#f92672">operationId</span>: <span style="color:#ae81ff">post-Pony</span>
+      <span style="color:#f92672">responses</span>:
+        <span style="color:#f92672">&#39;200&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Pony Created</span>
+          <span style="color:#f92672">content</span>:
+            <span style="color:#f92672">application/json</span>:
+              <span style="color:#f92672">schema</span>:
+                <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Pony&#39;</span>
+              <span style="color:#f92672">examples</span>: {}
+        <span style="color:#f92672">&#39;400&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Missing Required Information</span>
+        <span style="color:#f92672">&#39;409&#39;</span>:
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Email Already Taken</span>
+      <span style="color:#f92672">requestBody</span>:
+        <span style="color:#f92672">content</span>:
+          <span style="color:#f92672">application/json</span>:
+            <span style="color:#f92672">schema</span>:
+              <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Pony&#39;</span>
+            <span style="color:#f92672">examples</span>: {}
+        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Post the necessary fields for the API to create a new Pony.</span>
+      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Create a new Pony.</span>
+      <span style="color:#f92672">tags</span>:
+        - <span style="color:#ae81ff">ponies</span>
+    <span style="color:#f92672">parameters</span>: []
+<span style="color:#f92672">components</span>:
+  <span style="color:#f92672">schemas</span>:
+    <span style="color:#f92672">Pony</span>:
+      <span style="color:#f92672">title</span>: <span style="color:#ae81ff">Pony</span>
+      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">object</span>
+      <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#f92672">x-examples</span>: {}
+      <span style="color:#f92672">properties</span>:
+        <span style="color:#f92672">id</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">integer</span>
+          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Unique identifier for the given Pony.</span>
+        <span style="color:#f92672">name</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+        <span style="color:#f92672">type</span>:
+          <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/PonyType&#39;</span>
+        <span style="color:#f92672">friends</span>:
+          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">array</span>
+          <span style="color:#f92672">uniqueItems</span>: <span style="color:#66d9ef">true</span>
+          <span style="color:#f92672">items</span>:
+            <span style="color:#f92672">$ref</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#f92672">required</span>:
+        - <span style="color:#ae81ff">id</span>
+        - <span style="color:#ae81ff">name</span>
+        - <span style="color:#ae81ff">type</span>
+    <span style="color:#f92672">PonyType</span>:
+      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+      <span style="color:#f92672">title</span>: <span style="color:#ae81ff">PonyType</span>
+      <span style="color:#f92672">enum</span>:
+        - <span style="color:#ae81ff">Earth</span>
+        - <span style="color:#ae81ff">Unicorns</span>
+        - <span style="color:#ae81ff">Pegasi</span>
+<span style="color:#f92672">tags</span>:
+  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ponies</span>
+---</code></pre></td></tr></table>
+</div>
+</div>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chooseYourTeam">Choose your team</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://zomzog.fr/1/01/">Team backend</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://zomzog.fr/1/01/">Team documentation</a></p>
+</div>
+</div>
+</div>
+
+  
+
+  
+  <hr>
+  <footer>
+    <section class="timeline"><div></div><a class="float-right" href="https://zomzog.fr/2020/05/openapi-generator-inheritance/">OpenApi generator inheritance <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a><br>
+</section>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzomzog.fr%2f2021%2f02%2fcontract-first-rest-api-journey-draft%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fzomzog.fr%2f2021%2f02%2fcontract-first-rest-api-journey-draft%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fzomzog.fr%2f2021%2f02%2fcontract-first-rest-api-journey-draft%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fzomzog.fr%2f2021%2f02%2fcontract-first-rest-api-journey-draft%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zomzog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+        
+        
+        <div class="col-12 col-lg-3">
+          <aside class="ml-auto blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset row">
+    <div id="profile" class="col-4 col-lg-12">
+      <div class="portrait" style="background-image: url('https://s.gravatar.com/avatar/0a71ca60d71fa5dcefb541ad69d02a41?s=200');"></div>
+      <meta itemprop="image" content="https://s.gravatar.com/avatar/0a71ca60d71fa5dcefb541ad69d02a41?s=200">
+    </div>
+    <div class="col-8 col-lg-12">
+      <p>Hi, I&rsquo;m Thibault Duperron a simple developer, evangelist of the Pony Driven Development.</p>
+      <p><ul id="social">
+                                     
+</ul></p>
+    </div>
+    
+  </section>
+  
+
+  
+        <section class="sidebar-module sidebar-module-inset row">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2021/02/contract-first-rest-api-journey-draft/">Contract-first Rest API journey - Draft</a></li>
+
+<li><a href="/2020/05/openapi-generator-inheritance/">OpenApi generator inheritance</a></li>
+
+<li><a href="/2020/03/ergodox-accent-without-international-deadkey/">Ergodox accent without international deadkey</a></li>
+
+<li><a href="/2020/03/openapi-generator-client-auth-token-management/">OpenApi generator client auth token management</a></li>
+
+<li><a href="/2019/12/gitflow-maven-jgitver/">Gitflow + Maven = JgitVer</a></li>
+
+    </ol>
+  </section>
+
+  
+
+</aside>
+
+        </div>
+        
+        <!-- /.sidebar -->
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      All code and content for this blog is available as <a href="https://github.com/zomzog/zomzog.fr">open source on GitHub</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

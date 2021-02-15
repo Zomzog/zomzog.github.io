@@ -7,20 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright>
-    <lastBuildDate>Sun, 31 May 2020 19:24:11 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Feb 2021 18:10:00 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>OAS3</title>
-      <link>https://zomzog.fr/tags/oas3/</link>
-      <pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate>
+      <title>Contract-First</title>
+      <link>https://zomzog.fr/tags/contract-first/</link>
+      <pubDate>Mon, 15 Feb 2021 18:10:00 +0100</pubDate>
       
-      <guid>https://zomzog.fr/tags/oas3/</guid>
+      <guid>https://zomzog.fr/tags/contract-first/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OpenAPI Generator</title>
       <link>https://zomzog.fr/tags/openapi-generator/</link>
-      <pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate>
+      <pubDate>Mon, 15 Feb 2021 18:10:00 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/openapi-generator/</guid>
       <description></description>
@@ -29,9 +29,18 @@
     <item>
       <title>SpringBoot</title>
       <link>https://zomzog.fr/tags/springboot/</link>
-      <pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate>
+      <pubDate>Mon, 15 Feb 2021 18:10:00 +0100</pubDate>
       
       <guid>https://zomzog.fr/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OAS3</title>
+      <link>https://zomzog.fr/tags/oas3/</link>
+      <pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate>
+      
+      <guid>https://zomzog.fr/tags/oas3/</guid>
       <description></description>
     </item>
     
