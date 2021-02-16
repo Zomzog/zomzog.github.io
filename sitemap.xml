@@ -3,47 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://zomzog.fr/tags/contract-first/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/2021/02/contract-first-rest-api-journey-draft/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/openapi-generator/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/post/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/springboot/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/tags/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/</loc>
-    <lastmod>2021-02-15T18:10:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zomzog.fr/tags/oas3/</loc>
     <lastmod>2020-05-31T19:24:11+01:00</lastmod>
   </url>
   
   <url>
+    <loc>https://zomzog.fr/tags/openapi-generator/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zomzog.fr/2020/05/openapi-generator-inheritance/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/post/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/tags/springboot/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/tags/</loc>
+    <lastmod>2020-05-31T19:24:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zomzog.fr/</loc>
     <lastmod>2020-05-31T19:24:11+01:00</lastmod>
   </url>
   
@@ -175,14 +165,6 @@
   <url>
     <loc>https://zomzog.fr/2017/11/springboot-embeded-flowable/</loc>
     <lastmod>2017-11-01T21:49:21+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/1/01/</loc>
-  </url>
-  
-  <url>
-    <loc>https://zomzog.fr/1/01/</loc>
   </url>
   
   <url>
