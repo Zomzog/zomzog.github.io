@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PHP on Zomzog's blog</title><link>https://zomzog.fr/tags/php/</link><description>Recent content in PHP on Zomzog's blog</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright><lastBuildDate>Tue, 05 Dec 2017 08:35:41 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/php/index.xml" rel="self" type="application/rss+xml"/><item><title>Prestashop 1.7 module</title><link>https://zomzog.fr/2017/12/prestashop-1.7-module/</link><pubDate>Tue, 05 Dec 2017 08:35:41 +0100</pubDate><guid>https://zomzog.fr/2017/12/prestashop-1.7-module/</guid><description>&lt;div class="paragraph">
+&lt;p>I’ve installed a Prestashop store because…​ It’s free and open source.
+I need some modules like EU cookie banner and I don’t want to pay 30+€ just for that.&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>I looked at the community solution but I didn’t find a solution that transcended me…​
+And in fact, it’s a good &amp;#34;hello world&amp;#34; example for me to learn how to create modules for Prestashop.&lt;/p>
+&lt;/div></description></item></channel></rss>

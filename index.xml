@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zomzog's blog</title><link>https://zomzog.fr/</link><description>Recent content on Zomzog's blog</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright><lastBuildDate>Sun, 31 May 2020 19:24:11 +0100</lastBuildDate><atom:link href="https://zomzog.fr/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenApi generator inheritance</title><link>https://zomzog.fr/2020/05/openapi-generator-inheritance/</link><pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate><guid>https://zomzog.fr/2020/05/openapi-generator-inheritance/</guid><description>&lt;div class="paragraph text-center">
+&lt;p>&lt;span class="image">&lt;img src="https://zomzog.fr/images/openapi-inheritance/openapi-generator-logo.svg" alt="icon" width="200"/>&lt;/span>&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>We have to create a new API with inheritance in the model.
+To continue with the contract first way,
+we will see how to write it in OAS3.&lt;/p>
+&lt;/div></description></item><item><title>Ergodox accent without international deadkey</title><link>https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/</link><pubDate>Wed, 18 Mar 2020 18:10:00 +0100</pubDate><guid>https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/</guid><description>&lt;div class="paragraph text-center">
+&lt;p>&lt;span class="image">&lt;img src="https://zomzog.fr/images/ergodox-accent/ergodox.png" alt="icon" width="500"/>&lt;/span>&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>I try to configure an ergodox-ez keyboard with developper layout but also to be able to type french text.
+So I don’t want to set US-International layout because I don’t want dead key on all &lt;code>&amp;#39;&lt;/code> and &lt;code>`&lt;/code> when I develop.&lt;/p>
+&lt;/div></description></item><item><title>OpenApi generator client auth token management</title><link>https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/</link><pubDate>Sat, 14 Mar 2020 21:24:11 +0100</pubDate><guid>https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/</guid><description>&lt;div class="paragraph">
+&lt;p>In my team, we try to use a contract-first approach for our REST APIs.
+With multiple microservices, we need to pass user token when we call another service.&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>In this article, I will show how to easily pass this token with a generated RestTemplate client and Springboot.&lt;/p>
+&lt;/div></description></item><item><title>Gitflow + Maven = JgitVer</title><link>https://zomzog.fr/2019/12/gitflow-maven-jgitver/</link><pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate><guid>https://zomzog.fr/2019/12/gitflow-maven-jgitver/</guid><description>&lt;div class="paragraph">
+&lt;p>Gitflow is a branching model for Git where the develop branch contains staging modification and master branch contains released commits.&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>In this article, I will present you how we simplified maven version management to avoid merge conflict and ease our release process.&lt;/p>
+&lt;/div></description></item><item><title>Contract-First</title><link>https://zomzog.fr/2019/12/contract-first/</link><pubDate>Wed, 11 Dec 2019 21:24:11 +0100</pubDate><guid>https://zomzog.fr/2019/12/contract-first/</guid><description>&lt;div class="paragraph">
+&lt;p>An updated version of api-first presentation my teamates to OpenAPI-Generator.&lt;/p>
+&lt;/div></description></item><item><title>Unit toolkit</title><link>https://zomzog.fr/2019/10/unit-toolkit/</link><pubDate>Wed, 09 Oct 2019 23:05:11 +0100</pubDate><guid>https://zomzog.fr/2019/10/unit-toolkit/</guid><description>&lt;div class="paragraph">
+&lt;p>This presentation has been created to introduce my teamates to Junit 5 and other frameworks.&lt;/p>
+&lt;/div></description></item><item><title>API-First</title><link>https://zomzog.fr/2019/03/api-first/</link><pubDate>Tue, 05 Mar 2019 21:24:11 +0100</pubDate><guid>https://zomzog.fr/2019/03/api-first/</guid><description>&lt;div class="paragraph">
+&lt;p>This presentation has been created to introduce my teamates to OpenAPI-Generator.&lt;/p>
+&lt;/div></description></item><item><title>Aspect Oriented Programming</title><link>https://zomzog.fr/2018/09/aspect-oriented-programming/</link><pubDate>Sun, 23 Sep 2018 19:18:21 +0100</pubDate><guid>https://zomzog.fr/2018/09/aspect-oriented-programming/</guid><description>&lt;div class="paragraph">
+&lt;p>This presentation has been created to introduce my teamates to aop.&lt;/p>
+&lt;/div></description></item><item><title>Prestashop 1.7 module</title><link>https://zomzog.fr/2017/12/prestashop-1.7-module/</link><pubDate>Tue, 05 Dec 2017 08:35:41 +0100</pubDate><guid>https://zomzog.fr/2017/12/prestashop-1.7-module/</guid><description>&lt;div class="paragraph">
+&lt;p>I’ve installed a Prestashop store because…​ It’s free and open source.
+I need some modules like EU cookie banner and I don’t want to pay 30+€ just for that.&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>I looked at the community solution but I didn’t find a solution that transcended me…​
+And in fact, it’s a good &amp;#34;hello world&amp;#34; example for me to learn how to create modules for Prestashop.&lt;/p>
+&lt;/div></description></item><item><title>Springboot embeded flowable</title><link>https://zomzog.fr/2017/11/springboot-embeded-flowable/</link><pubDate>Wed, 01 Nov 2017 21:49:21 +0100</pubDate><guid>https://zomzog.fr/2017/11/springboot-embeded-flowable/</guid><description>&lt;div class="paragraph">
+&lt;p>In this tutorial, we’ll see how to initiate a springboot project with flowable.&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>We will build an API to make a pony says &amp;#34;hello &amp;lt;name&amp;gt;&amp;#34; or &amp;#34;Eeyup&amp;#34; if the pony is Big McIntosh&lt;/p>
+&lt;/div></description></item></channel></rss>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OAS3 on Zomzog's blog</title><link>https://zomzog.fr/tags/oas3/</link><description>Recent content in OAS3 on Zomzog's blog</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright><lastBuildDate>Sun, 31 May 2020 19:24:11 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/oas3/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenApi generator inheritance</title><link>https://zomzog.fr/2020/05/openapi-generator-inheritance/</link><pubDate>Sun, 31 May 2020 19:24:11 +0100</pubDate><guid>https://zomzog.fr/2020/05/openapi-generator-inheritance/</guid><description>&lt;div class="paragraph text-center">
+&lt;p>&lt;span class="image">&lt;img src="https://zomzog.fr/images/openapi-inheritance/openapi-generator-logo.svg" alt="icon" width="200"/>&lt;/span>&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>We have to create a new API with inheritance in the model.
+To continue with the contract first way,
+we will see how to write it in OAS3.&lt;/p>
+&lt;/div></description></item></channel></rss>

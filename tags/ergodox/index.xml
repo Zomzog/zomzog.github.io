@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ergodox on Zomzog's blog</title><link>https://zomzog.fr/tags/ergodox/</link><description>Recent content in ergodox on Zomzog's blog</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright><lastBuildDate>Wed, 18 Mar 2020 18:10:00 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/ergodox/index.xml" rel="self" type="application/rss+xml"/><item><title>Ergodox accent without international deadkey</title><link>https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/</link><pubDate>Wed, 18 Mar 2020 18:10:00 +0100</pubDate><guid>https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/</guid><description>&lt;div class="paragraph text-center">
+&lt;p>&lt;span class="image">&lt;img src="https://zomzog.fr/images/ergodox-accent/ergodox.png" alt="icon" width="500"/>&lt;/span>&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>I try to configure an ergodox-ez keyboard with developper layout but also to be able to type french text.
+So I don’t want to set US-International layout because I don’t want dead key on all &lt;code>&amp;#39;&lt;/code> and &lt;code>`&lt;/code> when I develop.&lt;/p>
+&lt;/div></description></item></channel></rss>

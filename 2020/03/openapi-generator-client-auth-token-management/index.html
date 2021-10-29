@@ -1,0 +1,354 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta property="og:title" content="OpenApi generator client auth token management"><meta property="og:description" content="
+In my team, we try to use a contract-first approach for our REST APIs.
+With multiple microservices, we need to pass user token when we call another service.
+
+
+In this article, I will show how to easily pass this token with a generated RestTemplate client and Springboot.
+"><meta property="og:type" content="article"><meta property="og:url" content="https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-03-14T21:24:11+01:00"><meta property="article:modified_time" content="2020-03-14T21:24:11+01:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="OpenApi generator client auth token management"><meta name=twitter:description content="
+In my team, we try to use a contract-first approach for our REST APIs.
+With multiple microservices, we need to pass user token when we call another service.
+
+
+In this article, I will show how to easily pass this token with a generated RestTemplate client and Springboot.
+"><meta name=generator content="Hugo 0.85.0"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"OpenApi generator client auth token management","url":"https:\/\/zomzog.fr\/2020\/03\/openapi-generator-client-auth-token-management\/","wordCount":"712","datePublished":"2020-03-14T21:24:11\u002b01:00","dateModified":"2020-03-14T21:24:11\u002b01:00","author":{"@type":"Person","name":"Thibault Duperron"},"keywords":"OpenAPI Generator, SpringBoot, Oauth2"}</script><link rel=canonical href=https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/><script src=https://zomzog.fr/js/jquery.js></script><script src=https://zomzog.fr/js/popper.js></script><script src=https://zomzog.fr/js/bootstrap.js></script><title>OpenApi generator client auth token management | Zomzog's blog</title><link href=https://zomzog.fr/css/style.css rel=stylesheet></head><body><div class=blog-masthead><div class=container><nav class="nav blog-nav"><a class=nav-link href=https://zomzog.fr/>Zomzog's blog</a></nav></div></div><header class=blog-header><div class=container><h1 class=blog-title><a href=https://zomzog.fr/ rel=home></a></h1></div></header><div class=container><div class=row><div class="col-12 col-md-9 col-lg-9 blog-main"><article class=blog-post><section class=timeline><a href=https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/><i class="fa fa-long-arrow-left" aria-hidden=true></i> Ergodox accent without international deadkey</a><div></div><a class=float-right href=https://zomzog.fr/2019/12/gitflow-maven-jgitver/>Gitflow + Maven = JgitVer <i class="fa fa-long-arrow-right" aria-hidden=true></i></a><br></section><header><h2 class=blog-post-title><a href=https://zomzog.fr/2020/03/openapi-generator-client-auth-token-management/>OpenApi generator client auth token management</a>
+<a class=edit href=https://github.com/zomzog/zomzog.fr/edit/master/content/post/articles/openapi-springboot-oauth.adoc><i class="fa fa-pencil" aria-hidden=true></i></a></h2><p class=blog-post-meta><time datetime=2020-03-14T21:24:11+01:00>Sat 14 Mar 2020</time> by Thibault Duperron in
+<i class="fa fa-tag" aria-hidden=true></i>&nbsp;<a href=/tags/openapi-generator rel=tag>OpenAPI Generator</a>, <a href=/tags/springboot rel=tag>SpringBoot</a>, <a href=/tags/oauth2 rel=tag>Oauth2</a></p></header><div class=paragraph><p>In my team, we try to use a contract-first approach for our REST APIs.
+With multiple microservices, we need to pass user token when we call another service.</p></div><div class=paragraph><p>In this article, I will show how to easily pass this token with a generated RestTemplate client and Springboot.</p></div><div class=sect1><h2 id=_setup>SetUp</h2><div class=sectionbody><div class=paragraph><p>You can download the base project on <a href=https://github.com/Zomzog/openapi-spring-client-token>github</a>.
+It contains two servers.</p></div><div class=sect2><h3 id=_the_api>The API</h3><div class=paragraph><p>For this article I will use a simple CRUD API for ponies.<div class=accordion><h5><a class=collapsed data-toggle=collapse href=#api role=button aria-expanded=false aria-controls=api><i class="fa fa-caret-down" aria-hidden=true></i>
+api.yml</a></h5><div class=collapse id=api><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>---
+<span style=color:#f92672>openapi</span>: <span style=color:#e6db74>&#34;3.0.1&#34;</span>
+<span style=color:#f92672>info</span>:
+  <span style=color:#f92672>title</span>: <span style=color:#e6db74>&#34;My Little Pony&#34;</span>
+  <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Friendship is magic&#34;</span>
+  <span style=color:#f92672>contact</span>: {}
+  <span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;1.0.0&#34;</span>
+<span style=color:#f92672>paths</span>:
+  <span style=color:#f92672>/ponies</span>:
+    <span style=color:#f92672>summary</span>: <span style=color:#e6db74>&#34;Everything for ponies&#34;</span>
+    <span style=color:#f92672>get</span>:
+      <span style=color:#f92672>summary</span>: <span style=color:#e6db74>&#34;List&#34;</span>
+      <span style=color:#f92672>operationId</span>: <span style=color:#e6db74>&#34;list&#34;</span>
+      <span style=color:#f92672>parameters</span>:
+        - <span style=color:#f92672>name</span>: <span style=color:#e6db74>&#34;name&#34;</span>
+          <span style=color:#f92672>in</span>: <span style=color:#e6db74>&#34;query&#34;</span>
+          <span style=color:#f92672>required</span>: <span style=color:#66d9ef>false</span>
+          <span style=color:#f92672>schema</span>:
+            <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+          <span style=color:#f92672>example</span>: <span style=color:#e6db74>&#34;Rainbow Dash&#34;</span>
+      <span style=color:#f92672>responses</span>:
+        <span style=color:#e6db74>&#34;200&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 200&#34;</span>
+          <span style=color:#f92672>content</span>:
+            <span style=color:#f92672>application/json</span>:
+              <span style=color:#f92672>schema</span>:
+                <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;array&#34;</span>
+                <span style=color:#f92672>items</span>:
+                  <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Pony&#34;</span>
+        <span style=color:#e6db74>&#34;400&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 400&#34;</span>
+    <span style=color:#f92672>post</span>:
+      <span style=color:#f92672>summary</span>: <span style=color:#e6db74>&#34;Create&#34;</span>
+      <span style=color:#f92672>operationId</span>: <span style=color:#e6db74>&#34;create&#34;</span>
+      <span style=color:#f92672>requestBody</span>:
+        <span style=color:#f92672>content</span>:
+          <span style=color:#f92672>application/json</span>:
+            <span style=color:#f92672>schema</span>:
+              <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Pony&#34;</span>
+      <span style=color:#f92672>responses</span>:
+        <span style=color:#e6db74>&#34;201&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 201&#34;</span>
+          <span style=color:#f92672>content</span>:
+            <span style=color:#f92672>application/json</span>:
+              <span style=color:#f92672>schema</span>:
+                <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Pony&#34;</span>
+        <span style=color:#e6db74>&#34;400&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 400&#34;</span>
+  <span style=color:#ae81ff>/ponies/{ponyId}:</span>
+    <span style=color:#f92672>get</span>:
+      <span style=color:#f92672>summary</span>: <span style=color:#e6db74>&#34;Get one&#34;</span>
+      <span style=color:#f92672>operationId</span>: <span style=color:#e6db74>&#34;getOne&#34;</span>
+      <span style=color:#f92672>responses</span>:
+        <span style=color:#e6db74>&#34;200&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 200&#34;</span>
+          <span style=color:#f92672>content</span>:
+            <span style=color:#f92672>application/json</span>:
+              <span style=color:#f92672>schema</span>:
+                <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Pony&#34;</span>
+    <span style=color:#f92672>put</span>:
+      <span style=color:#f92672>summary</span>: <span style=color:#e6db74>&#34;Update&#34;</span>
+      <span style=color:#f92672>operationId</span>: <span style=color:#e6db74>&#34;update&#34;</span>
+      <span style=color:#f92672>requestBody</span>:
+        <span style=color:#f92672>content</span>:
+          <span style=color:#f92672>application/json</span>:
+            <span style=color:#f92672>schema</span>:
+              <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Pony&#34;</span>
+      <span style=color:#f92672>responses</span>:
+        <span style=color:#e6db74>&#34;200&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 200&#34;</span>
+          <span style=color:#f92672>content</span>:
+            <span style=color:#f92672>application/json</span>:
+              <span style=color:#f92672>schema</span>:
+                <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Pony&#34;</span>
+    <span style=color:#f92672>delete</span>:
+      <span style=color:#f92672>summary</span>: <span style=color:#e6db74>&#34;Delete one&#34;</span>
+      <span style=color:#f92672>operationId</span>: <span style=color:#e6db74>&#34;deleteOne&#34;</span>
+      <span style=color:#f92672>responses</span>:
+        <span style=color:#e6db74>&#34;200&#34;</span>:
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Status 200&#34;</span>
+    <span style=color:#f92672>parameters</span>:
+      - <span style=color:#f92672>name</span>: <span style=color:#e6db74>&#34;ponyId&#34;</span>
+        <span style=color:#f92672>in</span>: <span style=color:#e6db74>&#34;path&#34;</span>
+        <span style=color:#f92672>required</span>: <span style=color:#66d9ef>true</span>
+        <span style=color:#f92672>schema</span>:
+          <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+<span style=color:#f92672>components</span>:
+  <span style=color:#f92672>schemas</span>:
+    <span style=color:#f92672>Pony</span>:
+      <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;object&#34;</span>
+      <span style=color:#f92672>required</span>:
+        - <span style=color:#e6db74>&#34;Color&#34;</span>
+        - <span style=color:#e6db74>&#34;Name&#34;</span>
+      <span style=color:#f92672>properties</span>:
+        <span style=color:#f92672>Id</span>:
+          <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+        <span style=color:#f92672>Name</span>:
+          <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+          <span style=color:#f92672>minLength</span>: <span style=color:#ae81ff>1</span>
+          <span style=color:#f92672>maxLength</span>: <span style=color:#ae81ff>100</span>
+          <span style=color:#f92672>example</span>: <span style=color:#e6db74>&#34;Big McIntosh&#34;</span>
+        <span style=color:#f92672>Color</span>:
+          <span style=color:#f92672>$ref</span>: <span style=color:#e6db74>&#34;#/components/schemas/Color&#34;</span>
+        <span style=color:#f92672>CreatedAt</span>:
+          <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;integer&#34;</span>
+          <span style=color:#f92672>format</span>: <span style=color:#e6db74>&#34;int64&#34;</span>
+          <span style=color:#f92672>description</span>: <span style=color:#e6db74>&#34;Timestamp&#34;</span>
+    <span style=color:#f92672>Color</span>:
+      <span style=color:#f92672>type</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+      <span style=color:#f92672>enum</span>:
+        - <span style=color:#e6db74>&#34;RED&#34;</span>
+        - <span style=color:#e6db74>&#34;RAINBOW&#34;</span>
+        - <span style=color:#e6db74>&#34;BLUE&#34;</span>
+      <span style=color:#f92672>example</span>: <span style=color:#e6db74>&#34;RED&#34;</span></code></pre></td></tr></table></div></div></div></div></p></div></div><div class=sect2><h3 id=_front>Front</h3><div class=paragraph><p>It is the Authorization Server.
+You can obtain a JWT token with this call :<div class=accordion><h5><a class=collapsed data-toggle=collapse href=#curlLogin role=button aria-expanded=false aria-controls=curlLogin><i class="fa fa-caret-down" aria-hidden=true></i>
+curl login</a></h5><div class=collapse id=curlLogin><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>curl <span style=color:#f92672>--</span>location <span style=color:#f92672>--</span>request POST <span style=color:#960050;background-color:#1e0010>&#39;</span>localhost<span style=color:#f92672>:</span>8080<span style=color:#f92672>/</span>oauth<span style=color:#f92672>/</span>token<span style=color:#960050;background-color:#1e0010>&#39;</span> <span style=color:#960050;background-color:#1e0010>\</span>
+    <span style=color:#f92672>--</span>header <span style=color:#960050;background-color:#1e0010>&#39;</span>Content<span style=color:#f92672>-</span>Type<span style=color:#f92672>:</span> application<span style=color:#f92672>/</span>x<span style=color:#f92672>-</span>www<span style=color:#f92672>-</span>form<span style=color:#f92672>-</span>urlencoded<span style=color:#960050;background-color:#1e0010>&#39;</span> <span style=color:#960050;background-color:#1e0010>\</span>
+    <span style=color:#f92672>--</span>header <span style=color:#960050;background-color:#1e0010>&#39;</span>Authorization<span style=color:#f92672>:</span> Basic Y2xpZW50SWQ6Y2xpZW50U2VjcmV0<span style=color:#960050;background-color:#1e0010>&#39;</span> <span style=color:#960050;background-color:#1e0010>\</span>
+    <span style=color:#f92672>--</span>data<span style=color:#f92672>-</span>urlencode <span style=color:#960050;background-color:#1e0010>&#39;</span>username<span style=color:#f92672>=</span>user1<span style=color:#960050;background-color:#1e0010>&#39;</span> <span style=color:#960050;background-color:#1e0010>\</span>
+    <span style=color:#f92672>--</span>data<span style=color:#f92672>-</span>urlencode <span style=color:#960050;background-color:#1e0010>&#39;</span>password<span style=color:#f92672>=</span>password<span style=color:#960050;background-color:#1e0010>&#39;</span> <span style=color:#960050;background-color:#1e0010>\</span>
+    <span style=color:#f92672>--</span>data<span style=color:#f92672>-</span>urlencode <span style=color:#960050;background-color:#1e0010>&#39;</span>grant_type<span style=color:#f92672>=</span>password<span style=color:#960050;background-color:#1e0010>&#39;</span></code></pre></td></tr></table></div></div></div></div></p></div><div class=paragraph><p>This server will also contains the generated client.</p></div></div><div class=sect2><h3 id=_back>Back</h3><div class=paragraph><p>This one contains the generated server-side.
+All endpoints required an authenticated connexion with a bearer token generated by the front.</p></div></div><div class=sect2><h3 id=_client>Client</h3><div class=paragraph><p>The client is generated with java/restTemplate</p></div><div class=paragraph><div class=accordion><h5><a class=collapsed data-toggle=collapse href=#clientGeneration role=button aria-expanded=false aria-controls=clientGeneration><i class="fa fa-caret-down" aria-hidden=true></i>
+pom.xml</a></h5><div class=collapse id=clientGeneration><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>&lt;</span>plugin<span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;</span>groupId<span style=color:#f92672>&gt;</span>org<span style=color:#f92672>.</span><span style=color:#a6e22e>openapitools</span><span style=color:#f92672>&lt;/</span>groupId<span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;</span>artifactId<span style=color:#f92672>&gt;</span>openapi<span style=color:#f92672>-</span>generator<span style=color:#f92672>-</span>maven<span style=color:#f92672>-</span>plugin<span style=color:#f92672>&lt;/</span>artifactId<span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;</span>executions<span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;</span>execution<span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;</span>goals<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>goal<span style=color:#f92672>&gt;</span>generate<span style=color:#f92672>&lt;/</span>goal<span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;/</span>goals<span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;</span>configuration<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>inputSpec<span style=color:#f92672>&gt;</span>$<span style=color:#f92672>{</span>basedir<span style=color:#f92672>}/</span>src<span style=color:#f92672>/</span>main<span style=color:#f92672>/</span>resources<span style=color:#f92672>/</span>api<span style=color:#f92672>.</span><span style=color:#a6e22e>yml</span><span style=color:#f92672>&lt;/</span>inputSpec<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>generatorName<span style=color:#f92672>&gt;</span>java<span style=color:#f92672>&lt;/</span>generatorName<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>library<span style=color:#f92672>&gt;</span>resttemplate<span style=color:#f92672>&lt;/</span>library<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>configOptions<span style=color:#f92672>&gt;</span>
+                    <span style=color:#f92672>&lt;</span>sourceFolder<span style=color:#f92672>&gt;</span>src<span style=color:#f92672>/</span>gen<span style=color:#f92672>/</span>java<span style=color:#f92672>/</span>main<span style=color:#f92672>&lt;/</span>sourceFolder<span style=color:#f92672>&gt;</span>
+                    <span style=color:#f92672>&lt;</span>dateLibrary<span style=color:#f92672>&gt;</span>java8<span style=color:#f92672>&lt;/</span>dateLibrary<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;/</span>configOptions<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>modelPackage<span style=color:#f92672>&gt;</span>bzh<span style=color:#f92672>.</span><span style=color:#a6e22e>zomzog</span><span style=color:#f92672>.</span><span style=color:#a6e22e>demo</span><span style=color:#f92672>.</span><span style=color:#a6e22e>openapispringclienttoken</span><span style=color:#f92672>.</span><span style=color:#a6e22e>front</span><span style=color:#f92672>.</span><span style=color:#a6e22e>domain</span><span style=color:#f92672>.</span><span style=color:#a6e22e>api</span><span style=color:#f92672>&lt;/</span>modelPackage<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>apiPackage<span style=color:#f92672>&gt;</span>bzh<span style=color:#f92672>.</span><span style=color:#a6e22e>zomzog</span><span style=color:#f92672>.</span><span style=color:#a6e22e>demo</span><span style=color:#f92672>.</span><span style=color:#a6e22e>openapispringclienttoken</span><span style=color:#f92672>.</span><span style=color:#a6e22e>front</span><span style=color:#f92672>.</span><span style=color:#a6e22e>controller</span><span style=color:#f92672>.</span><span style=color:#a6e22e>api</span><span style=color:#f92672>&lt;/</span>apiPackage<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>generateSupportingFiles<span style=color:#f92672>&gt;</span><span style=color:#66d9ef>true</span><span style=color:#f92672>&lt;/</span>generateSupportingFiles<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>generateApiTests<span style=color:#f92672>&gt;</span><span style=color:#66d9ef>false</span><span style=color:#f92672>&lt;/</span>generateApiTests<span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;</span>generateModelTests<span style=color:#f92672>&gt;</span><span style=color:#66d9ef>false</span><span style=color:#f92672>&lt;/</span>generateModelTests<span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;/</span>configuration<span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;/</span>execution<span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;/</span>executions<span style=color:#f92672>&gt;</span>
+<span style=color:#f92672>&lt;/</span>plugin<span style=color:#f92672>&gt;</span></code></pre></td></tr></table></div></div></div></div></div><div class=paragraph><p>This generator creates Spring <code>@Component</code> for each API and a common <code>ApiClient</code>.
+This ApiClient required a <code>RestTemplate</code> bean for spring injection,
+so we will modify this part for adding authentification to external calls.</p></div><div class=paragraph><p>By default, spring-web provides a predefined <code>RestTemplateBuilder</code> so we just need to add an interceptor to it.
+We just need to extract the token from <code>SecurityContextHolder</code> and add it to the headers.</p></div><div class=paragraph><div class=accordion><h5><a class=collapsed data-toggle=collapse href=#restTemplate role=button aria-expanded=false aria-controls=restTemplate><i class="fa fa-caret-down" aria-hidden=true></i>
+RestTemplateConfig.java</a></h5><div class=collapse id=restTemplate><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#a6e22e>@Bean</span>
+<span style=color:#66d9ef>public</span> RestTemplate <span style=color:#a6e22e>restTemplate</span><span style=color:#f92672>(</span>RestTemplateBuilder restTemplateBuilder<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>return</span> restTemplateBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>additionalInterceptors</span><span style=color:#f92672>((</span>httpRequest<span style=color:#f92672>,</span> bytes<span style=color:#f92672>,</span> clientHttpRequestExecution<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
+        Object details <span style=color:#f92672>=</span> SecurityContextHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>getContext</span><span style=color:#f92672>().</span><span style=color:#a6e22e>getAuthentication</span><span style=color:#f92672>().</span><span style=color:#a6e22e>getDetails</span><span style=color:#f92672>();</span>
+        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>details <span style=color:#66d9ef>instanceof</span> OAuth2AuthenticationDetails<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+            OAuth2AuthenticationDetails oauthsDetails <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>OAuth2AuthenticationDetails<span style=color:#f92672>)</span> details<span style=color:#f92672>;</span>
+            String type <span style=color:#f92672>=</span> oauthsDetails<span style=color:#f92672>.</span><span style=color:#a6e22e>getTokenType</span><span style=color:#f92672>();</span>
+            String token <span style=color:#f92672>=</span> oauthsDetails<span style=color:#f92672>.</span><span style=color:#a6e22e>getTokenValue</span><span style=color:#f92672>();</span>
+            httpRequest<span style=color:#f92672>.</span><span style=color:#a6e22e>getHeaders</span><span style=color:#f92672>().</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span>HttpHeaders<span style=color:#f92672>.</span><span style=color:#a6e22e>AUTHORIZATION</span><span style=color:#f92672>,</span> type <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; &#34;</span> <span style=color:#f92672>+</span> token<span style=color:#f92672>);</span>
+        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
+            <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> RuntimeException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Not oauth2&#34;</span><span style=color:#f92672>);</span>
+        <span style=color:#f92672>}</span>
+        <span style=color:#66d9ef>return</span> clientHttpRequestExecution<span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span>httpRequest<span style=color:#f92672>,</span> bytes<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}).</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+<span style=color:#f92672>}</span></code></pre></td></tr></table></div></div></div></div></div><div class=paragraph><p>ApiClient basePath can set with a @PostConstruct</p></div><div class=paragraph><div class=accordion><h5><a class=collapsed data-toggle=collapse href=#basePath role=button aria-expanded=false aria-controls=basePath><i class="fa fa-caret-down" aria-hidden=true></i>
+BackendClientConfig.java</a></h5><div class=collapse id=basePath><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> ApiClient apiClient<span style=color:#f92672>;</span>
+
+<span style=color:#a6e22e>@PostConstruct</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>config</span><span style=color:#f92672>(){</span>
+    apiClient<span style=color:#f92672>.</span><span style=color:#a6e22e>setBasePath</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;http://localhost:8081&#34;</span><span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span></code></pre></td></tr></table></div></div></div></div></div></div><div class=sect2><h3 id=_conclusion>Conclusion</h3><div class=paragraph><p>With this configuration, each calls with generated clients will contains the token.</p></div><div class=paragraph><p>If multiple clients need to be generated the ApiClient can be generated separately and mutualized.</p></div><div class=paragraph><p>Source code example can be found on <a href=https://github.com/Zomzog/openapi-spring-client-token>Github</a></p></div></div></div></div><div class=sect1><h2 id=_links>Links</h2><div class=sectionbody><div class=paragraph><p><a href=https://github.com/Zomzog/openapi-spring-client-token>Demo project</a></p></div><div class=paragraph><p><a href=https://github.com/OpenAPITools/openapi-generator>OpenAPI Generator</a></p></div></div></div><hr><footer><section class=timeline><a href=https://zomzog.fr/2020/03/ergodox-accent-without-international-deadkey/><i class="fa fa-long-arrow-left" aria-hidden=true></i> Ergodox accent without international deadkey</a><div></div><a class=float-right href=https://zomzog.fr/2019/12/gitflow-maven-jgitver/>Gitflow + Maven = JgitVer <i class="fa fa-long-arrow-right" aria-hidden=true></i></a><br></section><section><h4>Share</h4><nav class="nav sharing-icons"><a class=nav-item href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzomzog.fr%2f2020%2f03%2fopenapi-generator-client-auth-token-management%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden=true></span></a><a class=nav-item href="https://plus.google.com/share?url=https%3a%2f%2fzomzog.fr%2f2020%2f03%2fopenapi-generator-client-auth-token-management%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden=true></span></a><a class=nav-item href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fzomzog.fr%2f2020%2f03%2fopenapi-generator-client-auth-token-management%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden=true></span></a><a class=nav-item href="https://twitter.com/home?status=https%3a%2f%2fzomzog.fr%2f2020%2f03%2fopenapi-generator-client-auth-token-management%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a></nav></section><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//zomzog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></footer></article></div><div class="col-12 col-lg-3"><aside class="ml-auto blog-sidebar"><section class="sidebar-module sidebar-module-inset row"><div id=profile class="col-4 col-lg-12"><div class=portrait style="background-image:url(https://s.gravatar.com/avatar/0a71ca60d71fa5dcefb541ad69d02a41?s=200)"></div><meta itemprop=image content="https://s.gravatar.com/avatar/0a71ca60d71fa5dcefb541ad69d02a41?s=200"></div><div class="col-8 col-lg-12"><p>Hi, I&rsquo;m Thibault Duperron a simple developer, evangelist of the Pony Driven Development.</p><p><ul id=social></ul></p></div></section><section class="sidebar-module sidebar-module-inset row"><h4>Recent Posts</h4><ol class=list-unstyled><li><a href=/2020/05/openapi-generator-inheritance/>OpenApi generator inheritance</a></li><li><a href=/2020/03/ergodox-accent-without-international-deadkey/>Ergodox accent without international deadkey</a></li><li><a href=/2020/03/openapi-generator-client-auth-token-management/>OpenApi generator client auth token management</a></li><li><a href=/2019/12/gitflow-maven-jgitver/>Gitflow + Maven = JgitVer</a></li><li><a href=/2019/12/contract-first/>Contract-First</a></li></ol></section></aside></div></div></div><footer class=blog-footer><p>All code and content for this blog is available as <a href=https://github.com/zomzog/zomzog.fr>open source on GitHub</a>.</p><p><a href=#>Back to top</a></p></footer></body></html>

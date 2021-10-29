@@ -1,0 +1,295 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta property="og:title" content="Prestashop 1.7 module"><meta property="og:description" content="
+I’ve installed a Prestashop store because…​ It’s free and open source.
+I need some modules like EU cookie banner and I don’t want to pay 30+€ just for that.
+
+
+I looked at the community solution but I didn’t find a solution that transcended me…​
+And in fact, it’s a good &#34;hello world&#34; example for me to learn how to create modules for Prestashop.
+"><meta property="og:type" content="article"><meta property="og:url" content="https://zomzog.fr/2017/12/prestashop-1.7-module/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-12-05T08:35:41+01:00"><meta property="article:modified_time" content="2017-12-05T08:35:41+01:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Prestashop 1.7 module"><meta name=twitter:description content="
+I’ve installed a Prestashop store because…​ It’s free and open source.
+I need some modules like EU cookie banner and I don’t want to pay 30+€ just for that.
+
+
+I looked at the community solution but I didn’t find a solution that transcended me…​
+And in fact, it’s a good &#34;hello world&#34; example for me to learn how to create modules for Prestashop.
+"><meta name=generator content="Hugo 0.85.0"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Prestashop 1.7 module","url":"https:\/\/zomzog.fr\/2017\/12\/prestashop-1.7-module\/","wordCount":"1094","datePublished":"2017-12-05T08:35:41\u002b01:00","dateModified":"2017-12-05T08:35:41\u002b01:00","author":{"@type":"Person","name":"Thibault Duperron"},"keywords":"PHP, Prestashop"}</script><link rel=canonical href=https://zomzog.fr/2017/12/prestashop-1.7-module/><script src=https://zomzog.fr/js/jquery.js></script><script src=https://zomzog.fr/js/popper.js></script><script src=https://zomzog.fr/js/bootstrap.js></script><title>Prestashop 1.7 module | Zomzog's blog</title><link href=https://zomzog.fr/css/style.css rel=stylesheet></head><body><div class=blog-masthead><div class=container><nav class="nav blog-nav"><a class=nav-link href=https://zomzog.fr/>Zomzog's blog</a></nav></div></div><header class=blog-header><div class=container><h1 class=blog-title><a href=https://zomzog.fr/ rel=home></a></h1></div></header><div class=container><div class=row><div class="col-12 col-md-9 col-lg-9 blog-main"><article class=blog-post><section class=timeline><a href=https://zomzog.fr/2018/09/aspect-oriented-programming/><i class="fa fa-long-arrow-left" aria-hidden=true></i> Aspect Oriented Programming</a><div></div><a class=float-right href=https://zomzog.fr/2017/11/springboot-embeded-flowable/>Springboot embeded flowable <i class="fa fa-long-arrow-right" aria-hidden=true></i></a><br></section><header><h2 class=blog-post-title><a href=https://zomzog.fr/2017/12/prestashop-1.7-module/>Prestashop 1.7 module</a>
+<a class=edit href=https://github.com/zomzog/zomzog.fr/edit/master/content/post/articles/prestashop-module.adoc><i class="fa fa-pencil" aria-hidden=true></i></a></h2><p class=blog-post-meta><time datetime=2017-12-05T08:35:41+01:00>Tue 05 Dec 2017</time> by Thibault Duperron in
+<i class="fa fa-tag" aria-hidden=true></i>&nbsp;<a href=/tags/php rel=tag>PHP</a>, <a href=/tags/prestashop rel=tag>Prestashop</a></p></header><div class=paragraph><p>I’ve installed a Prestashop store because…​ It’s free and open source.
+I need some modules like EU cookie banner and I don’t want to pay 30+€ just for that.</p></div><div class=paragraph><p>I looked at the community solution but I didn’t find a solution that transcended me…​
+And in fact, it’s a good "hello world" example for me to learn how to create modules for Prestashop.</p></div><div class=paragraph><p>The full implementation of the module can be found in
+<a href=https://github.com/Zomzog/z_cookiesalert>this GitHub project</a>.</p></div><div class=sect1><h2 id=_environment>Environment</h2><div class=sectionbody><div class=paragraph><p>For this tutorial, I use a fresh installed Prestashop 1.7.2.1 and PHP 7.1.1.</p></div><div class=paragraph><p>I use a symbolic link to add my git source folder to prestashopFolder/modules/z_cookiesalert</p></div></div></div><div class=sect1><h2 id=_initialization>Initialization</h2><div class=sectionbody><div class=paragraph><p>For initializing the module files, you can follow the
+<a href=http://developers.prestashop.com/module/05-CreatingAPrestaShop17Module/index.html>Prestashop documentation</a>.</p></div><div class=paragraph><p>But it’s full of naming convention and specific folder organization.
+Your module folder must be lowercase (z_cookiesalert).
+The first php file name must be lowercase too (z_cookiesalert.php).
+The class name in this file must be camlCase (class Z_Cookiesalert extends Module).
+And don’t forget everytime you add a folder, you must add an index.php file.</p></div><div class=paragraph><p>The easiest way I found on community forum is to start from an existing module (get an official one from Prestashop’s GitHub) and modify the names.</p></div><div class=paragraph><p>Another tip is to target 1.7+ compatibility and forget 1.6 and 1.5.
+There are too many differences between well-organized modules for 1.7 and for preview versions.</p></div></div></div><div class=sect1><h2 id=_the_module>The module</h2><div class=sectionbody><div class=paragraph><p>The z_cookiesalert.php content must start by</p></div><div class=paragraph><p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>defined</span>(<span style=color:#e6db74>&#39;_PS_VERSION_&#39;</span>)) {
+    <span style=color:#66d9ef>exit</span>;
+}</code></pre></td></tr></table></div></div>The sole purpose of this is to prevent malicious visitors to load this file directly.</p></div><div class=paragraph><p>After that, we need to create the main class with the module description.
+All information on the __construct method will be used by Prestashop to generate the config.xml file.</p></div><div class=paragraph><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Z_Cookiesalert</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>Module</span>
+{
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct()
+    {
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;z_cookiesalert&#39;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>tab</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;front_office_features&#39;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>version</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;0.1.0&#39;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>author</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Zomzog&#39;</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>need_instance</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>ps_versions_compliancy</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;min&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;1.7&#39;</span>, <span style=color:#e6db74>&#39;max&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>_PS_VERSION_</span>);
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>bootstrap</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+
+        <span style=color:#66d9ef>parent</span><span style=color:#f92672>::</span><span style=color:#a6e22e>__construct</span>();
+
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>displayName</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Cookies Alert&#39;</span>);
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>description</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Cookies alert for users.&#39;</span>);
+
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>confirmUninstall</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Are you sure you want to uninstall? :(&#39;</span>);
+
+        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>Configuration</span><span style=color:#f92672>::</span><span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;Z_COOKIES_ALERT_NAME&#39;</span>))
+            $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>warning</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;No name provided&#39;</span>);
+    }
+}</code></pre></td></tr></table></div></div></div></div></div><div class=sect1><h2 id=_the_front_office>The front office</h2><div class=sectionbody><div class=paragraph><p>For displaying the ribbon message, we will add a hook to the "displayFooter" hook.
+And we will add all css and js required on the "header" hook.
+At installation, we will also declare a default content message for the ribbon.</p></div><div class=paragraph><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>install</span>()
+{
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>parent</span><span style=color:#f92672>::</span><span style=color:#a6e22e>install</span>() <span style=color:#f92672>&amp;&amp;</span>
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>registerHook</span>(<span style=color:#e6db74>&#39;displayFooter&#39;</span>) <span style=color:#f92672>&amp;&amp;</span>
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>registerHook</span>(<span style=color:#e6db74>&#39;header&#39;</span>) <span style=color:#f92672>&amp;&amp;</span>
+        <span style=color:#a6e22e>Configuration</span><span style=color:#f92672>::</span><span style=color:#a6e22e>updateValue</span>(<span style=color:#e6db74>&#39;Z_COOKIES_ALERT_MESSAGE&#39;</span>, <span style=color:#e6db74>&#39;En poursuivant votre navigation, vous acceptez l\&#39;utilisation des cookies pour disposer de services et d\&#39;offres adaptés à vos centres d\&#39;intérêt.&#39;</span>);
+}</code></pre></td></tr></table></div></div></div><div class=paragraph><p>To get the hooked content, Prestashop will look at the method named hookNameOfTheHook.
+In our case, it will be hookDisplayFooter and hookDisplayHeader.</p></div><div class=paragraph><p>We will register the module’s stylesheet and the module’s javascript files on the header with :<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>hookDisplayHeader</span>()
+{
+    $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>context</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>controller</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>registerStylesheet</span>(<span style=color:#e6db74>&#39;modules-z_cookiesalert&#39;</span>, <span style=color:#e6db74>&#39;modules/&#39;</span> <span style=color:#f92672>.</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39;/views/css/z_cookiesalert.css&#39;</span>, [<span style=color:#e6db74>&#39;media&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;all&#39;</span>, <span style=color:#e6db74>&#39;priority&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>150</span>]);
+    $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>context</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>controller</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>registerJavascript</span>(<span style=color:#e6db74>&#39;modules-z_cookiesalert&#39;</span>, <span style=color:#e6db74>&#39;modules/&#39;</span> <span style=color:#f92672>.</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39;/views/js/z_cookiesalert.js&#39;</span>, [<span style=color:#e6db74>&#39;position&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;bottom&#39;</span>, <span style=color:#e6db74>&#39;priority&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>150</span>]);
+}</code></pre></td></tr></table></div></div></p></div><div class=paragraph><p>For the footer, if the cookie usage has not been accepted yet ( check on the cookie =D ), we will add two parameters to smarty and display the cookiealert template.</p></div></div></div><div class=sect1><h2 id=_the_back_office>The back office</h2><div class=sectionbody><div class=paragraph><p>The content of the ribbon must be customizable by the end user.
+For this, we must declare a new displayConfigForm method.
+For having a uniform render, Prestashop advice to use HelperForm.</p></div><div class=paragraph><p>For this, we will create a $fields_form with all required fields and use the helper to configure the render.</p></div><div class=paragraph><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>displayConfigForm</span>()
+{
+    <span style=color:#75715e>// Get default language
+</span><span style=color:#75715e></span>    $default_lang <span style=color:#f92672>=</span> (<span style=color:#a6e22e>int</span>)<span style=color:#a6e22e>Configuration</span><span style=color:#f92672>::</span><span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;PS_LANG_DEFAULT&#39;</span>);
+
+    <span style=color:#75715e>// Init Fields form array
+</span><span style=color:#75715e></span>    $fields_form <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(
+        <span style=color:#e6db74>&#39;form&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+            <span style=color:#e6db74>&#39;legend&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+                <span style=color:#e6db74>&#39;title&#39;</span> <span style=color:#f92672>=&gt;</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Settings&#39;</span>),
+            ),
+            <span style=color:#e6db74>&#39;input&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+                <span style=color:#66d9ef>array</span>(
+                    <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;text&#39;</span>,
+                    <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Message&#39;</span>),
+                    <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;Z_COOKIES_ALERT_MESSAGE&#39;</span>,
+                    <span style=color:#e6db74>&#39;size&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>128</span>,
+                    <span style=color:#e6db74>&#39;required&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>
+                )
+            ),
+            <span style=color:#e6db74>&#39;submit&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+                <span style=color:#e6db74>&#39;title&#39;</span> <span style=color:#f92672>=&gt;</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Save&#39;</span>),
+                <span style=color:#e6db74>&#39;class&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;btn btn-default pull-right&#39;</span>
+            )
+        )
+    );
+
+    $helper <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>HelperForm</span>();
+
+    <span style=color:#75715e>// Module, token and currentIndex
+</span><span style=color:#75715e></span>    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>module</span> <span style=color:#f92672>=</span> $this;
+    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name_controller</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span>;
+    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>token</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Tools</span><span style=color:#f92672>::</span><span style=color:#a6e22e>getAdminTokenLite</span>(<span style=color:#e6db74>&#39;AdminModules&#39;</span>);
+    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>currentIndex</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>AdminController</span><span style=color:#f92672>::</span>$currentIndex <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39;&amp;configure=&#39;</span> <span style=color:#f92672>.</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span>;
+
+    <span style=color:#75715e>// Language
+</span><span style=color:#75715e></span>    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>default_form_language</span> <span style=color:#f92672>=</span> $default_lang;
+    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>allow_employee_form_lang</span> <span style=color:#f92672>=</span> $default_lang;
+
+    <span style=color:#75715e>// Title and toolbar
+</span><span style=color:#75715e></span>    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>title</span> <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>displayName</span>;
+    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>show_toolbar</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;        <span style=color:#75715e>// false -&gt; remove toolbar
+</span><span style=color:#75715e></span>    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>toolbar_scroll</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;      <span style=color:#75715e>// yes - &gt; Toolbar is always visible on the top of the screen.
+</span><span style=color:#75715e></span>    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>submit_action</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;submit&#39;</span> <span style=color:#f92672>.</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span>;
+    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>toolbar_btn</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(
+        <span style=color:#e6db74>&#39;save&#39;</span> <span style=color:#f92672>=&gt;</span>
+            <span style=color:#66d9ef>array</span>(
+                <span style=color:#e6db74>&#39;desc&#39;</span> <span style=color:#f92672>=&gt;</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Save&#39;</span>),
+                <span style=color:#e6db74>&#39;href&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>AdminController</span><span style=color:#f92672>::</span>$currentIndex <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39;&amp;configure=&#39;</span> <span style=color:#f92672>.</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39;&amp;save&#39;</span> <span style=color:#f92672>.</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>.</span>
+                    <span style=color:#e6db74>&#39;&amp;token=&#39;</span> <span style=color:#f92672>.</span> <span style=color:#a6e22e>Tools</span><span style=color:#f92672>::</span><span style=color:#a6e22e>getAdminTokenLite</span>(<span style=color:#e6db74>&#39;AdminModules&#39;</span>),
+            ),
+        <span style=color:#e6db74>&#39;back&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+            <span style=color:#e6db74>&#39;href&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>AdminController</span><span style=color:#f92672>::</span>$currentIndex <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39;&amp;token=&#39;</span> <span style=color:#f92672>.</span> <span style=color:#a6e22e>Tools</span><span style=color:#f92672>::</span><span style=color:#a6e22e>getAdminTokenLite</span>(<span style=color:#e6db74>&#39;AdminModules&#39;</span>),
+            <span style=color:#e6db74>&#39;desc&#39;</span> <span style=color:#f92672>=&gt;</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Back to list&#39;</span>)
+        )
+    );
+
+    <span style=color:#75715e>// Load current value
+</span><span style=color:#75715e></span>    $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>fields_value</span>[<span style=color:#e6db74>&#39;Z_COOKIES_ALERT_MESSAGE&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>Configuration</span><span style=color:#f92672>::</span><span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;Z_COOKIES_ALERT_MESSAGE&#39;</span>);
+
+    <span style=color:#66d9ef>return</span> $helper<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>generateForm</span>(<span style=color:#66d9ef>array</span>($fields_form));
+}</code></pre></td></tr></table></div></div></div></div></div><div class=sect1><h2 id=_the_ajax_call>The ajax call</h2><div class=sectionbody><div class=paragraph><p>When the user closes the ribbon, we want to create an ajax call to update the cookie on the server side.
+For this, we must create a front controller.
+We will add a cookies.php file on z_cookiealert/controllers/front/.
+This file will declare a ModuleFrontController.
+The naming convention will force the name to Z_CookiesalertCookiesModuleFrontController class.</p></div><div class=paragraph><p>When the class will be called, it will set the cookiealert to accepted and response true.</p></div><div class=paragraph><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>require_once</span> <span style=color:#a6e22e>_PS_MODULE_DIR_</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;z_cookiesalert/z_cookiesalert.php&#39;</span>;
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Z_CookiesalertCookiesModuleFrontController</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>ModuleFrontController</span> {
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>initContent</span>()
+    {
+        $module <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Z_Cookiesalert</span>;
+
+        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>Tools</span><span style=color:#f92672>::</span><span style=color:#a6e22e>isSubmit</span>(<span style=color:#e6db74>&#39;action&#39;</span>)) {
+            $context <span style=color:#f92672>=</span> <span style=color:#a6e22e>Context</span><span style=color:#f92672>::</span><span style=color:#a6e22e>getContext</span>();
+            $cookie <span style=color:#f92672>=</span> $context<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>cookie</span>;
+
+            $cookie<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>__set</span>(<span style=color:#e6db74>&#39;zcookiealert&#39;</span>, <span style=color:#e6db74>&#34;accepted&#34;</span>);
+
+            $response <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;status&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>, <span style=color:#e6db74>&#34;message&#34;</span> <span style=color:#f92672>=&gt;</span> $module<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>l</span>(<span style=color:#e6db74>&#39;Done.&#39;</span>));
+        }
+       <span style=color:#66d9ef>die</span>(<span style=color:#a6e22e>Tools</span><span style=color:#f92672>::</span><span style=color:#a6e22e>jsonEncode</span>($response));
+    }
+}</code></pre></td></tr></table></div></div></div><div class=paragraph><p>For calling the controller, we must resolve the url to the controller.
+The easiest way to do that is to use <em>url</em> method on the template.
+For this, we will add a data-url attribute to cookie_alert div.<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;cookies_alert&#34;</span> <span style=color:#a6e22e>data-url</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;{url entity=&#39;module&#39; name=&#39;z_cookiesalert&#39; controller=&#39;Cookies&#39; params = [action =&gt; &#39;action_name&#39;]}&#34;</span></code></pre></td></tr></table></div></div>This information will be resolve at display.
+And we will be able to add a javascript click handler with jquery like :</p></div><div class=paragraph><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>$</span>(document).<span style=color:#a6e22e>ready</span>(<span style=color:#66d9ef>function</span>() {
+    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>cookieContent</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>$</span>(<span style=color:#e6db74>&#39;.cookies_alert&#39;</span>);
+
+    <span style=color:#a6e22e>$</span>(<span style=color:#e6db74>&#39;.accept-cookie&#39;</span>).<span style=color:#a6e22e>click</span>(<span style=color:#66d9ef>function</span> () {
+        <span style=color:#a6e22e>$</span>.<span style=color:#a6e22e>getJSON</span>(<span style=color:#a6e22e>$</span>(<span style=color:#e6db74>&#39;div.cookies_alert&#39;</span>).<span style=color:#a6e22e>data</span>(<span style=color:#e6db74>&#39;url&#39;</span>), {}, <span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>data</span>) {
+            <span style=color:#66d9ef>if</span>(<span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;undefined&#34;</span>) {
+                <span style=color:#75715e>// Do something
+</span><span style=color:#75715e></span>            }
+        });
+        <span style=color:#a6e22e>cookieContent</span>.<span style=color:#a6e22e>hide</span>(<span style=color:#ae81ff>500</span>);
+    });
+});</code></pre></td></tr></table></div></div></div></div></div><hr><footer><section class=timeline><a href=https://zomzog.fr/2018/09/aspect-oriented-programming/><i class="fa fa-long-arrow-left" aria-hidden=true></i> Aspect Oriented Programming</a><div></div><a class=float-right href=https://zomzog.fr/2017/11/springboot-embeded-flowable/>Springboot embeded flowable <i class="fa fa-long-arrow-right" aria-hidden=true></i></a><br></section><section><h4>Share</h4><nav class="nav sharing-icons"><a class=nav-item href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzomzog.fr%2f2017%2f12%2fprestashop-1.7-module%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden=true></span></a><a class=nav-item href="https://plus.google.com/share?url=https%3a%2f%2fzomzog.fr%2f2017%2f12%2fprestashop-1.7-module%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden=true></span></a><a class=nav-item href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fzomzog.fr%2f2017%2f12%2fprestashop-1.7-module%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden=true></span></a><a class=nav-item href="https://twitter.com/home?status=https%3a%2f%2fzomzog.fr%2f2017%2f12%2fprestashop-1.7-module%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a></nav></section><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//zomzog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></footer></article></div><div class="col-12 col-lg-3"><aside class="ml-auto blog-sidebar"><section class="sidebar-module sidebar-module-inset row"><div id=profile class="col-4 col-lg-12"><div class=portrait style="background-image:url(https://s.gravatar.com/avatar/0a71ca60d71fa5dcefb541ad69d02a41?s=200)"></div><meta itemprop=image content="https://s.gravatar.com/avatar/0a71ca60d71fa5dcefb541ad69d02a41?s=200"></div><div class="col-8 col-lg-12"><p>Hi, I&rsquo;m Thibault Duperron a simple developer, evangelist of the Pony Driven Development.</p><p><ul id=social></ul></p></div></section><section class="sidebar-module sidebar-module-inset row"><h4>Recent Posts</h4><ol class=list-unstyled><li><a href=/2020/05/openapi-generator-inheritance/>OpenApi generator inheritance</a></li><li><a href=/2020/03/ergodox-accent-without-international-deadkey/>Ergodox accent without international deadkey</a></li><li><a href=/2020/03/openapi-generator-client-auth-token-management/>OpenApi generator client auth token management</a></li><li><a href=/2019/12/gitflow-maven-jgitver/>Gitflow + Maven = JgitVer</a></li><li><a href=/2019/12/contract-first/>Contract-First</a></li></ol></section></aside></div></div></div><footer class=blog-footer><p>All code and content for this blog is available as <a href=https://github.com/zomzog/zomzog.fr>open source on GitHub</a>.</p><p><a href=#>Back to top</a></p></footer></body></html>

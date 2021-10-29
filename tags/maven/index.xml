@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Maven on Zomzog's blog</title><link>https://zomzog.fr/tags/maven/</link><description>Recent content in Maven on Zomzog's blog</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><copyright>All code and content for this blog is available as [open source on GitHub](https://github.com/zomzog/zomzog.fr).</copyright><lastBuildDate>Thu, 12 Dec 2019 21:24:11 +0100</lastBuildDate><atom:link href="https://zomzog.fr/tags/maven/index.xml" rel="self" type="application/rss+xml"/><item><title>Gitflow + Maven = JgitVer</title><link>https://zomzog.fr/2019/12/gitflow-maven-jgitver/</link><pubDate>Thu, 12 Dec 2019 21:24:11 +0100</pubDate><guid>https://zomzog.fr/2019/12/gitflow-maven-jgitver/</guid><description>&lt;div class="paragraph">
+&lt;p>Gitflow is a branching model for Git where the develop branch contains staging modification and master branch contains released commits.&lt;/p>
+&lt;/div>
+&lt;div class="paragraph">
+&lt;p>In this article, I will present you how we simplified maven version management to avoid merge conflict and ease our release process.&lt;/p>
+&lt;/div></description></item></channel></rss>
